@@ -1,0 +1,414 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Flyer | Cozy Condo at Waterville Estates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            pine: {
+              50:  '#edf4f5', 100: '#d2e8ea', 200: '#a6d1d6',
+              300: '#72b5bc', 400: '#449aa3', 500: '#2d7f88',
+              600: '#1e636b', 700: '#164b52', 800: '#0f333a',
+              900: '#081e22', 950: '#040f11',
+            },
+            frost: {
+              50:  '#f0f8ff', 100: '#dff0fb', 200: '#b8def6',
+              300: '#8ac4ee', 400: '#54a3e1', 500: '#2d83cc',
+              600: '#1a66ac', 700: '#144f88', 800: '#0e3660',
+              900: '#071e3a',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+
+    /* ── Print Setup ── */
+    @page { size: letter portrait; margin: 0; }
+
+    @media print {
+      body {
+        margin: 0; padding: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print { display: none !important; }
+      .flyer-sheet {
+        width: 8.5in !important;
+        height: 11in !important;
+        max-height: 11in !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+      }
+    }
+
+    /* ── Screen View ── */
+    .flyer-sheet {
+      width: 8.5in;
+      min-height: 11in;
+      position: relative;
+    }
+
+    /* ── Winter mountain gradient background ── */
+    .winter-bg {
+      background:
+        linear-gradient(170deg,
+          rgba(7,30,58,0.92)   0%,
+          rgba(15,51,58,0.88) 40%,
+          rgba(7,30,58,0.95) 100%),
+        url('https://a0.muscache.com/im/pictures/hosting/Hosting-1774853304665030782/original/d7bf4dbd-1899-42c4-b6ce-0ba61664161e.jpeg')
+        center/cover no-repeat;
+    }
+
+    /* ── Snowflake drift animations ── */
+    @keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-8px) rotate(12deg)} }
+    .drift      { animation: drift  7s ease-in-out infinite; }
+    .drift-slow { animation: drift 12s ease-in-out infinite; }
+    .drift-med  { animation: drift  9s ease-in-out infinite 2s; }
+
+    /* ── Feature card glass effect ── */
+    .glass-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── QR card ── */
+    .qr-card {
+      background: rgba(255,255,255,0.97);
+      border: 2px solid rgba(138,196,238,0.35);
+    }
+
+    /* ── Bottom bar ── */
+    .info-bar {
+      background: rgba(4,15,17,0.70);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-300 font-sans antialiased py-8 print:py-0 flex flex-col items-center">
+
+  <!-- ======================================================== -->
+  <!-- SCREEN-ONLY TOOLBAR                                       -->
+  <!-- ======================================================== -->
+  <div class="no-print w-full max-w-4xl mb-5 px-4">
+    <div class="bg-white rounded-2xl shadow p-4 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="printer" class="w-4 h-4 text-pine-700"></i>
+          Printable Guest Welcome Flyer &mdash; Letter 8.5&Prime; &times; 11&Prime;
+        </h2>
+        <p class="text-xs text-slate-500 mt-0.5">
+          Print and place on the kitchen counter, fridge, or in a welcome frame for arriving guests.
+        </p>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="index.html" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Guest Guide
+        </a>
+        <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pine-700 hover:bg-pine-600 text-white text-xs font-bold transition shadow active:scale-95">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print Flyer
+        </button>
+      </div>
+    </div>
+
+    <!-- QR URL input -->
+    <div class="mt-2 bg-amber-50 rounded-xl p-3 border border-amber-200 flex flex-col sm:flex-row sm:items-center gap-2 text-xs">
+      <div class="flex items-center gap-2 shrink-0">
+        <i data-lucide="qr-code" class="w-4 h-4 text-amber-700"></i>
+        <span class="font-semibold text-amber-900">QR Target URL:</span>
+      </div>
+      <input type="text" id="qr-url-input"
+        class="flex-1 px-2.5 py-1.5 bg-white border border-amber-300 rounded-lg font-mono text-[11px] text-slate-800 focus:outline-none focus:ring-1 focus:ring-pine-600"
+        value="https://cozy-condo-waterville.vercel.app">
+      <span class="text-amber-800/70 text-[11px] shrink-0">Update when your domain is live</span>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- PRINTABLE FLYER SHEET                                     -->
+  <!-- ======================================================== -->
+  <div class="flyer-sheet winter-bg shadow-2xl overflow-hidden flex flex-col print:shadow-none">
+
+    <!-- Ambient snowflakes -->
+    <div class="absolute top-6  right-14 text-frost-300/25 drift-slow  pointer-events-none select-none text-6xl">❄</div>
+    <div class="absolute top-20 left-10  text-frost-200/15 drift       pointer-events-none select-none text-4xl">❄</div>
+    <div class="absolute top-40 right-1/3 text-white/8 drift-med      pointer-events-none select-none text-3xl">❄</div>
+    <div class="absolute bottom-32 left-20 text-frost-300/10 drift-slow pointer-events-none select-none text-5xl">❄</div>
+
+    <!-- ──────────────────────────────────── -->
+    <!-- HEADER                               -->
+    <!-- ──────────────────────────────────── -->
+    <div class="relative z-10 text-center px-10 pt-9 pb-6">
+
+      <!-- Eyebrow badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-frost-200 border border-white/20 backdrop-blur-sm mb-3 tracking-widest uppercase">
+        <i data-lucide="snowflake" class="w-3.5 h-3.5 text-frost-300"></i>
+        Winter Mountain Retreat &nbsp;&bull;&nbsp; Waterville Estates, NH
+      </div>
+
+      <h1 class="font-serif text-4xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
+        Cozy Condo at<br>
+        <span class="text-frost-300">Waterville Estates</span>
+      </h1>
+
+      <p class="text-frost-100/70 text-xs font-medium mt-2 tracking-wide uppercase">
+        Unit #5 &nbsp;&bull;&nbsp; 7 Laurel Circle, Thornton, New Hampshire
+      </p>
+
+      <!-- Thin frost divider -->
+      <div class="mt-5 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+    </div>
+
+    <!-- ──────────────────────────────────── -->
+    <!-- MAIN BODY: QR + FEATURES            -->
+    <!-- ──────────────────────────────────── -->
+    <div class="relative z-10 flex-1 grid grid-cols-12 gap-6 px-10 pb-4 items-center">
+
+      <!-- LEFT: QR Code + preview photos -->
+      <div class="col-span-5 flex flex-col items-center gap-3">
+
+        <!-- QR Card -->
+        <div class="qr-card rounded-3xl px-5 pt-6 pb-4 flex flex-col items-center shadow-xl relative w-full">
+
+          <!-- SCAN ME badge -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pine-800 to-pine-700 text-white font-bold text-[11px] px-4 py-1 rounded-full shadow flex items-center gap-1.5 tracking-wider whitespace-nowrap">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-amber-300"></i>
+            SCAN ME WITH YOUR PHONE
+          </div>
+
+          <!-- QR image -->
+          <div class="w-44 h-44 flex items-center justify-center bg-white rounded-2xl border border-slate-100 shadow-sm my-1">
+            <img id="qr-image"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https%3A%2F%2Fcozy-condo-waterville.vercel.app&color=081c15&bgcolor=ffffff"
+              alt="Scan for Digital Guest Guide"
+              class="w-full h-full object-contain p-1.5 rounded-2xl">
+          </div>
+
+          <p class="text-xs font-bold text-slate-900 mt-2">Digital Guest Guidebook</p>
+          <p class="text-[10px] text-slate-500 text-center leading-snug mt-0.5">
+            Point your phone camera here<br>
+            <span class="text-pine-700 font-semibold">No app needed &mdash; opens instantly!</span>
+          </p>
+
+          <!-- Star rating -->
+          <div class="mt-2.5 flex items-center gap-1 text-amber-500 text-xs font-bold">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+            <span class="text-slate-600 font-normal text-[10px] ml-0.5">5.0 Airbnb Guest Favorite</span>
+          </div>
+        </div>
+
+        <!-- Preview photos -->
+        <div class="grid grid-cols-2 gap-2 w-full">
+          <div class="h-20 rounded-2xl overflow-hidden shadow border border-white/20 relative">
+            <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1774853304665030782/original/d7bf4dbd-1899-42c4-b6ce-0ba61664161e.jpeg"
+                 alt="Cozy Fireplace" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent flex items-end p-1.5">
+              <span class="text-[9px] font-bold text-white">Cozy Fireplace</span>
+            </div>
+          </div>
+          <div class="h-20 rounded-2xl overflow-hidden shadow border border-white/20 relative">
+            <img src="https://www.waterville-estates.com/wp-content/uploads/2014/04/Pool-2.jpg"
+                 alt="Outdoor Heated Pool" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent flex items-end p-1.5">
+              <span class="text-[9px] font-bold text-white">4 Heated Pools</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: What's inside the guide -->
+      <div class="col-span-7 space-y-2.5">
+
+        <div class="mb-2">
+          <h3 class="text-base font-extrabold text-white flex items-center gap-2 drop-shadow">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+            Everything You Need for a Perfect Stay
+          </h3>
+          <p class="text-frost-200/70 text-xs mt-1 leading-relaxed">
+            Scan the QR code to open your complete digital guidebook &mdash; maps, instructions, dining, and more &mdash; right on your phone.
+          </p>
+        </div>
+
+        <!-- Feature rows -->
+        <div class="space-y-2 text-xs">
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-frost-500/30 border border-frost-400/30 text-frost-200 flex items-center justify-center shrink-0">
+              <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Instant Wi-Fi Access</h4>
+              <p class="text-frost-200/65 text-[11px]">One-tap password copy &mdash; network name &amp; password in the guide.</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-amber-500/25 border border-amber-400/30 text-amber-300 flex items-center justify-center shrink-0">
+              <i data-lucide="waves" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Rec Center &amp; Pool Passes</h4>
+              <p class="text-frost-200/65 text-[11px]">Included pass instructions, 4 heated pools, hot tubs, fitness &amp; sauna.</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-pine-500/30 border border-pine-400/30 text-pine-200 flex items-center justify-center shrink-0">
+              <i data-lucide="mountain-snow" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Skiing &amp; Winter Sports</h4>
+              <p class="text-frost-200/65 text-[11px]">On-site Campton Mtn, Waterville Valley, Loon &amp; Cannon &mdash; lift ticket links &amp; stats.</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-orange-500/25 border border-orange-400/30 text-orange-300 flex items-center justify-center shrink-0">
+              <i data-lucide="utensils" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Local Dining &amp; Coffee</h4>
+              <p class="text-frost-200/65 text-[11px]">Mad River Coffee, Benton&rsquo;s pancakes, Woodstock Brewery &amp; local ice cream spots.</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-emerald-500/20 border border-emerald-400/25 text-emerald-300 flex items-center justify-center shrink-0">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Hikes, Fishing &amp; Attractions</h4>
+              <p class="text-frost-200/65 text-[11px]">Welch-Dickey, Flume Gorge, fly fishing the Mad River, Franconia Notch &amp; more.</p>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl flex items-start gap-3 p-2.5">
+            <div class="w-7 h-7 rounded-xl bg-white/10 border border-white/15 text-frost-300 flex items-center justify-center shrink-0">
+              <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-white leading-tight">Appliances &amp; Check-Out Checklist</h4>
+              <p class="text-frost-200/65 text-[11px]">Fireplace, TV &amp; thermostat guides + interactive 10:00 AM departure checklist.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ──────────────────────────────────── -->
+    <!-- BOTTOM INFO BAR                     -->
+    <!-- ──────────────────────────────────── -->
+    <div class="relative z-10 px-10 pb-8">
+      <div class="h-px bg-gradient-to-r from-transparent via-white/15 to-transparent mb-4"></div>
+
+      <div class="info-bar rounded-2xl p-4 grid grid-cols-3 gap-4 text-white">
+
+        <!-- Wi-Fi -->
+        <div class="border-r border-white/15 pr-4">
+          <span class="text-[10px] text-amber-300 font-bold uppercase tracking-widest block mb-1">
+            <i data-lucide="wifi" class="w-3 h-3 inline -mt-0.5"></i> In-Condo Wi-Fi
+          </span>
+          <span id="flyer-wifi-ssid" class="font-mono font-bold text-xs text-white block">Network: &mdash;</span>
+          <span id="flyer-wifi-pass" class="font-mono text-[11px] text-frost-300 block mt-0.5">Password: &mdash;</span>
+        </div>
+
+        <!-- Check-In / Out -->
+        <div class="border-r border-white/15 px-4">
+          <span class="text-[10px] text-amber-300 font-bold uppercase tracking-widest block mb-1">
+            <i data-lucide="clock" class="w-3 h-3 inline -mt-0.5"></i> Stay Times
+          </span>
+          <span class="text-xs font-semibold text-frost-100 block">Check-in &nbsp;&mdash; 4:00 PM</span>
+          <span class="text-xs font-bold text-amber-300 block mt-0.5">Check-out &mdash; 10:00 AM</span>
+        </div>
+
+        <!-- Host -->
+        <div class="pl-4">
+          <span class="text-[10px] text-amber-300 font-bold uppercase tracking-widest block mb-1">
+            <i data-lucide="phone" class="w-3 h-3 inline -mt-0.5"></i> Need Help?
+          </span>
+          <span id="flyer-host-phone" class="font-mono font-bold text-xs text-white block">Call / Text Host</span>
+          <span class="text-[10px] text-frost-300/70 block mt-0.5">Emergency: Dial 911</span>
+        </div>
+
+      </div>
+
+      <p class="text-center text-[9px] text-white/30 mt-2.5 tracking-wide">
+        Cozy Condo at Waterville Estates &bull; 7 Laurel Circle, Unit #5, Thornton, NH 03223 &bull; Scan QR anytime for live updates &amp; maps
+      </p>
+    </div>
+
+  </div><!-- /flyer-sheet -->
+
+  <!-- ======================================================== -->
+  <!-- SCRIPTS                                                   -->
+  <!-- ======================================================== -->
+  <script src="guide-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Populate Wi-Fi & host info from guide-data.js
+      if (typeof GUIDE_DATA !== 'undefined') {
+        const p = GUIDE_DATA.property;
+        const ssidEl  = document.getElementById('flyer-wifi-ssid');
+        const passEl  = document.getElementById('flyer-wifi-pass');
+        const phoneEl = document.getElementById('flyer-host-phone');
+
+        if (ssidEl && p.wifi.network && !p.wifi.network.includes('[PLEASE UPDATE')) {
+          ssidEl.textContent = 'Network: ' + p.wifi.network;
+        }
+        if (passEl && p.wifi.password && !p.wifi.password.includes('[PLEASE UPDATE')) {
+          passEl.textContent = 'Password: ' + p.wifi.password;
+        }
+        if (phoneEl && p.hostContact.phone && !p.hostContact.phone.includes('[PLEASE UPDATE')) {
+          phoneEl.textContent = p.hostContact.phone;
+        }
+
+        // QR code — synced from guide-data.js or manual input
+        const input  = document.getElementById('qr-url-input');
+        const qrImg  = document.getElementById('qr-image');
+        const initUrl = p.liveWebsiteUrl || 'https://cozy-condo-waterville.vercel.app';
+
+        if (input) input.value = initUrl;
+        setQr(initUrl);
+
+        if (input) {
+          input.addEventListener('input', e => setQr(e.target.value.trim()));
+        }
+
+        function setQr(url) {
+          if (!qrImg || !url) return;
+          qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(url)}&color=040f11&bgcolor=ffffff`;
+        }
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
