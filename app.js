@@ -268,7 +268,7 @@ function renderSkiing() {
          data-search="${s.name} ${s.type} ${s.desc} ${s.specs}">
       <div>
         <div class="flex items-center justify-between gap-2 mb-2">
-          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-frost-50 text-frost-700 border border-frost-100">
+          <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-pine-50 text-pine-700 border border-pine-100">
             ${s.type}
           </span>
           <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
@@ -277,7 +277,7 @@ function renderSkiing() {
         </div>
         <h4 class="text-base font-bold text-slate-900 mb-1.5">${s.name}</h4>
         <p class="text-xs text-slate-600 mb-3 leading-relaxed">${s.desc}</p>
-        <div class="p-2.5 rounded-xl bg-frost-50 border border-frost-100 text-[11px] text-frost-900 font-medium mb-4">
+        <div class="p-2.5 rounded-xl bg-pine-50 border border-pine-100 text-[11px] text-pine-900 font-medium mb-4">
           ⛷️ ${s.specs}
         </div>
       </div>
@@ -285,7 +285,7 @@ function renderSkiing() {
         <a href="${s.mapUrl}" target="_blank" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-pine-700 hover:text-white text-slate-700 text-xs font-semibold transition">
           <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Maps
         </a>
-        <a href="${s.website}" target="_blank" class="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-xl bg-frost-50 hover:bg-frost-100 text-frost-700 text-xs font-semibold transition">
+        <a href="${s.website}" target="_blank" class="inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-xl bg-pine-50 hover:bg-pine-100 text-pine-700 text-xs font-semibold transition">
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Lift Tickets
         </a>
       </div>
@@ -574,19 +574,19 @@ function renderEmergency() {
   if (!grid) return;
 
   grid.innerHTML = GUIDE_DATA.emergency.map(em => `
-    <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/80 flex flex-col justify-between">
+    <div class="bg-pine-900/80 rounded-2xl p-4 border border-pine-700/80 flex flex-col justify-between">
       <div>
         <span class="text-[11px] font-bold text-red-400 uppercase tracking-wider block mb-1">${em.title}</span>
         <h4 class="text-base font-bold text-white mb-1">${em.name}</h4>
         <a href="tel:${em.phone.replace(/[^0-9]/g, '')}" class="inline-flex items-center gap-1.5 text-amber-300 font-mono font-bold text-sm hover:underline mb-2">
           <i data-lucide="phone" class="w-3.5 h-3.5"></i> ${em.phone}
         </a>
-        ${em.address  ? `<p class="text-xs text-slate-300 mb-1">${em.address}</p>` : ''}
-        ${em.distance ? `<p class="text-[11px] text-slate-400 mb-2 font-light">${em.distance}</p>` : ''}
-        ${em.note     ? `<p class="text-xs text-slate-400 italic">${em.note}</p>` : ''}
+        ${em.address  ? `<p class="text-xs text-pine-200 mb-1">${em.address}</p>` : ''}
+        ${em.distance ? `<p class="text-[11px] text-pine-300 mb-2 font-light">${em.distance}</p>` : ''}
+        ${em.note     ? `<p class="text-xs text-pine-300 italic">${em.note}</p>` : ''}
       </div>
       ${em.mapUrl ? `
-        <div class="pt-3 border-t border-slate-700 mt-2">
+        <div class="pt-3 border-t border-pine-700 mt-2">
           <a href="${em.mapUrl}" target="_blank" class="inline-flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 font-semibold">
             <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Open in Maps
           </a>
