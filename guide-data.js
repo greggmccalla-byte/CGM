@@ -330,6 +330,16 @@ const GUIDE_DATA = {
       website: "https://lavistaitalian.com"
     },
     {
+      name: "Yamas Greek Eatery",
+      type: "Authentic Greek & Mediterranean",
+      tag: "Dinner",
+      desc: "Outstanding authentic Greek cuisine featuring handmade gyros, souvlaki skewers, fresh Greek salads, spanakopita, lamb dishes, and warm pita in downtown Plymouth.",
+      address: "61 Main St, Plymouth, NH 03264",
+      driveTime: "15 mins",
+      mapUrl: "https://maps.google.com/?q=Yamas+Greek+Eatery+Plymouth+NH",
+      website: "https://cheersyamas.com/"
+    },
+    {
       name: "Sub Zero Nitrogen Ice Cream",
       type: "Custom Flash-Frozen Ice Cream",
       tag: "Ice Cream",
