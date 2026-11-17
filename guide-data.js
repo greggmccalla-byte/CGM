@@ -330,6 +330,16 @@ const GUIDE_DATA = {
       website: "https://lavistaitalian.com"
     },
     {
+      name: "Yamas Greek Eatery",
+      type: "Authentic Greek & Mediterranean",
+      tag: "Dinner",
+      desc: "Outstanding authentic Greek cuisine featuring handmade gyros, souvlaki skewers, fresh Greek salads, spanakopita, lamb dishes, and warm pita in downtown Plymouth.",
+      address: "61 Main St, Plymouth, NH 03264",
+      driveTime: "15 mins",
+      mapUrl: "https://maps.google.com/?q=Yamas+Greek+Eatery+Plymouth+NH",
+      website: "https://cheersyamas.com/"
+    },
+    {
       name: "Sub Zero Nitrogen Ice Cream",
       type: "Custom Flash-Frozen Ice Cream",
       tag: "Ice Cream",
@@ -340,14 +350,14 @@ const GUIDE_DATA = {
       website: "https://subzeroicecream.com"
     },
     {
-      name: "Udderly Delicious Ice Cream",
-      type: "Old Fashioned Ice Cream Stand",
+      name: "M'nM Scoops",
+      type: "Artisan Ice Cream & Treats",
       tag: "Ice Cream",
-      desc: "Classic New England roadside stand serving massive homemade hard-serve ice cream scoops, soft serve, sundae specials, and frappes.",
-      address: "Route 3, Lincoln/North Woodstock area",
-      driveTime: "18 mins",
-      mapUrl: "https://maps.google.com/?q=Ice+Cream+Lincoln+NH",
-      website: "https://www.google.com/search?q=ice+cream+near+thornton+nh"
+      desc: "Beloved local ice cream shop serving premium super-premium hard ice cream, soft serve, custom sundaes, milkshakes, and sweet treats in historic downtown Plymouth.",
+      address: "67 Main St, Plymouth, NH 03264",
+      driveTime: "15 mins",
+      mapUrl: "https://maps.google.com/?q=M%27nM+Scoops+Plymouth+NH",
+      website: "https://www.mnmscoops.com/"
     }
   ],
 
