@@ -171,11 +171,16 @@
         <a href="flyer.html" class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition border border-slate-200">
           <i data-lucide="printer" class="w-3.5 h-3.5"></i><span>Flyer</span>
         </a>
+        <!-- Mobile Menu Button -->
+        <button id="open-menu-btn" class="md:hidden inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition border border-slate-200" title="Open Directory Menu">
+          <i data-lucide="menu" class="w-3.5 h-3.5"></i>
+          <span>Menu</span>
+        </button>
       </div>
     </div>
 
-    <!-- NAV PILL BAR -->
-    <div class="bg-white border-t border-slate-100 px-4 py-1.5 overflow-x-auto no-scrollbar">
+    <!-- NAV PILL BAR (Desktop/Tablet) -->
+    <div class="hidden md:block bg-white border-t border-slate-100 px-4 py-1.5 overflow-x-auto no-scrollbar">
       <nav class="max-w-6xl mx-auto flex items-center gap-1 text-[11px] font-medium whitespace-nowrap">
         <a href="#top"          class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">🏠 Welcome</a>
         <a href="#wifi-section" class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">📶 Wi-Fi</a>
@@ -644,6 +649,123 @@
       </div>
     </div>
   </footer>
+
+  <!-- Floating Mobile Navigation Pill (Mobile only) -->
+  <div id="floating-nav-pill" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 md:hidden transition-all duration-300">
+    <button id="floating-menu-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900/95 text-white text-xs font-bold shadow-2xl border border-white/20 backdrop-blur-md active:scale-95 hover:bg-slate-800 transition">
+      <i data-lucide="compass" class="w-4 h-4 text-emerald-400"></i>
+      <span>Browse 14 Sections</span>
+      <i data-lucide="chevron-up" class="w-3.5 h-3.5 text-slate-400"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Bottom Sheet Drawer -->
+  <div id="mobile-sheet" class="fixed inset-0 z-50 pointer-events-none md:hidden">
+    <!-- Dark Backdrop -->
+    <div id="sheet-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs opacity-0 transition-opacity duration-300"></div>
+
+    <!-- Sheet Panel -->
+    <div id="sheet-panel" class="fixed inset-x-0 bottom-0 max-h-[85vh] bg-white rounded-t-3xl shadow-2xl flex flex-col transform translate-y-full transition-transform duration-300 ease-out border-t border-slate-200">
+      
+      <!-- Top Handle Bar -->
+      <div class="pt-3 pb-1 cursor-grab">
+        <div class="w-12 h-1.5 bg-slate-300 rounded-full mx-auto"></div>
+      </div>
+
+      <!-- Sheet Header -->
+      <div class="px-5 py-3 border-b border-slate-100 flex items-center justify-between">
+        <div>
+          <h3 class="font-serif font-bold text-lg text-slate-900 leading-tight">Guide Directory</h3>
+          <p class="text-[11px] text-slate-500">Waterville Estates Condo #5 • 14 Sections</p>
+        </div>
+        <button id="close-sheet-btn" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-800 transition" aria-label="Close menu">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Scrollable Sections List -->
+      <div class="overflow-y-auto px-5 py-4 space-y-5 overscroll-contain">
+        
+        <!-- Group 1: Condo Essentials -->
+        <div>
+          <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">🏠 Condo Essentials</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="#top" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🏠</span><span>Welcome</span>
+            </a>
+            <a href="#wifi-section" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">📶</span><span>Wi-Fi & Trash</span>
+            </a>
+            <a href="#appliances" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🔧</span><span>Condo Guide</span>
+            </a>
+            <a href="#rules" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">📋</span><span>House Rules</span>
+            </a>
+            <a href="#checkout" class="sheet-link col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">✅</span><span>Check-Out Checklist</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group 2: Resort & Outdoors -->
+        <div>
+          <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">🎯 Resort & Activities</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="#rec-center" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🏊</span><span>Rec Center</span>
+            </a>
+            <a href="#events" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50/70 text-indigo-900 hover:bg-indigo-100 transition font-bold border border-indigo-200/60">
+              <span class="text-base">📅</span><span>Area Events</span>
+            </a>
+            <a href="#attractions" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🗺️</span><span>Day Trips</span>
+            </a>
+            <a href="#skiing" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">⛷️</span><span>Skiing</span>
+            </a>
+            <a href="#hiking" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🥾</span><span>Hiking</span>
+            </a>
+            <a href="#fishing" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🎣</span><span>Fly Fishing</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Group 3: Dining & Services -->
+        <div>
+          <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">🍽️ Dining & Guest Services</h4>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="#dining" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🍽️</span><span>Restaurants</span>
+            </a>
+            <a href="#groceries" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">🛒</span><span>Groceries</span>
+            </a>
+            <a href="#gallery" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
+              <span class="text-base">📷</span><span>Photo Gallery</span>
+            </a>
+            <a href="#emergency" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-red-50 text-red-700 hover:bg-red-100 transition font-bold border border-red-200">
+              <span class="text-base">🚨</span><span>Emergency</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sheet Footer: Quick Host Actions -->
+      <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center gap-3">
+        <a id="sheet-call-btn" href="tel:" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-pine-700 text-white font-bold text-xs hover:bg-pine-800 transition shadow-xs">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i> Call Host
+        </a>
+        <a id="sheet-text-btn" href="sms:" class="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-amber-400 text-pine-950 font-bold text-xs hover:bg-amber-500 transition shadow-xs">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i> Text Host
+        </a>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Toast Notification Popup -->
   <div id="update-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out">

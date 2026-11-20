@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 15. Setup Wi-Fi Copy Button
   setupWifiCopy();
 
+  // 15b. Setup Mobile Bottom Sheet Navigation
+  setupBottomSheet();
+
   // 16. Display Last Updated Date & Setup Update Buttons
   renderLastUpdated();
   setupUpdateGuideButton();
@@ -101,11 +104,14 @@ function renderPropertyBasics() {
   // Host contact buttons
   const callBtn = document.getElementById('host-call-btn');
   const textBtn = document.getElementById('host-text-btn');
-  if (callBtn && p.hostContact && p.hostContact.phone) {
-    callBtn.href = `tel:${p.hostContact.phone.replace(/[^0-9]/g, '')}`;
-  }
-  if (textBtn && p.hostContact && p.hostContact.phone) {
-    textBtn.href = `sms:${p.hostContact.phone.replace(/[^0-9]/g, '')}`;
+  const sheetCallBtn = document.getElementById('sheet-call-btn');
+  const sheetTextBtn = document.getElementById('sheet-text-btn');
+  if (p.hostContact && p.hostContact.phone) {
+    const rawPhone = p.hostContact.phone.replace(/[^0-9]/g, '');
+    if (callBtn) callBtn.href = `tel:${rawPhone}`;
+    if (textBtn) textBtn.href = `sms:${rawPhone}`;
+    if (sheetCallBtn) sheetCallBtn.href = `tel:${rawPhone}`;
+    if (sheetTextBtn) sheetTextBtn.href = `sms:${rawPhone}`;
   }
 }
 
@@ -790,5 +796,56 @@ function setupUpdateGuideButton() {
 
       document.body.appendChild(newScript);
     });
+  });
+}
+
+// -----------------------------------------------------------------------------
+// 17. MOBILE BOTTOM SHEET & DIRECTORY
+// -----------------------------------------------------------------------------
+function setupBottomSheet() {
+  const sheet = document.getElementById('mobile-sheet');
+  const backdrop = document.getElementById('sheet-backdrop');
+  const panel = document.getElementById('sheet-panel');
+  const openBtns = [
+    document.getElementById('open-menu-btn'),
+    document.getElementById('floating-menu-btn')
+  ].filter(Boolean);
+  const closeBtn = document.getElementById('close-sheet-btn');
+  const sheetLinks = document.querySelectorAll('.sheet-link');
+
+  if (!sheet || !panel) return;
+
+  function openSheet() {
+    sheet.classList.remove('pointer-events-none');
+    backdrop.classList.remove('opacity-0');
+    backdrop.classList.add('opacity-100');
+    panel.classList.remove('translate-y-full');
+    panel.classList.add('translate-y-0');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeSheet() {
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    panel.classList.remove('translate-y-0');
+    panel.classList.add('translate-y-full');
+    document.body.classList.remove('overflow-hidden');
+    setTimeout(() => {
+      sheet.classList.add('pointer-events-none');
+    }, 300);
+  }
+
+  openBtns.forEach(btn => btn.addEventListener('click', openSheet));
+  if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+  if (backdrop) backdrop.addEventListener('click', closeSheet);
+
+  sheetLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeSheet();
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeSheet();
   });
 }
