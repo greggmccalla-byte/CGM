@@ -23,45 +23,45 @@
           },
           colors: {
             pine: {
-              50:  '#f4f8f2',
-              100: '#e2eddc',
-              200: '#c0d9b5',
-              300: '#93be85',
-              400: '#6aa05a',
-              500: '#4d8340',
-              600: '#3a6830',
-              700: '#2e5126',
-              800: '#243f1e',
-              900: '#1b2f17',
-              950: '#0f1c0d',
+              50:  '#edf4f5',
+              100: '#d2e8ea',
+              200: '#a6d1d6',
+              300: '#72b5bc',
+              400: '#449aa3',
+              500: '#2d7f88',
+              600: '#1e636b',
+              700: '#164b52',
+              800: '#0f333a',
+              900: '#081e22',
+              950: '#040f11',
             },
             frost: {
-              50:  '#faf8f2',
-              100: '#f2eddf',
-              200: '#e3d9bb',
-              300: '#cfc08e',
-              400: '#bba36a',
-              500: '#a08750',
-              600: '#856d3d',
-              700: '#6a5530',
-              800: '#4f3f24',
-              900: '#342a18',
+              50:  '#f0f8ff',
+              100: '#dff0fb',
+              200: '#b8def6',
+              300: '#8ac4ee',
+              400: '#54a3e1',
+              500: '#2d83cc',
+              600: '#1a66ac',
+              700: '#144f88',
+              800: '#0e3660',
+              900: '#071e3a',
             },
             slate: {
-              850: '#2a2e28',
+              850: '#172033',
             },
-            snow:  '#faf9f6',
-            ember: '#b45309',
+            snow:  '#f8fafc',
+            ember: '#c2410c',
           },
           backgroundImage: {
-            'winter-gradient': 'linear-gradient(135deg, #2e5126 0%, #3a6830 40%, #2e5126 100%)',
-            'frost-gradient': 'linear-gradient(135deg, #faf8f2 0%, #f2eddf 50%, #f4f8f2 100%)',
-            'ember-glow': 'linear-gradient(135deg, #78350f 0%, #b45309 50%, #92400e 100%)',
+            'winter-gradient': 'linear-gradient(135deg, #071e3a 0%, #0f333a 40%, #071e3a 100%)',
+            'frost-gradient': 'linear-gradient(135deg, #f0f8ff 0%, #dff0fb 50%, #edf4f5 100%)',
+            'ember-glow': 'linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #9a3412 100%)',
           },
           boxShadow: {
-            'winter': '0 4px 24px -2px rgba(46,81,38,0.14), 0 2px 8px -2px rgba(46,81,38,0.08)',
-            'card': '0 1px 4px rgba(58,104,48,0.07), 0 4px 16px rgba(58,104,48,0.05)',
-            'glow': '0 0 24px rgba(107,160,90,0.18)',
+            'winter': '0 4px 24px -2px rgba(7,30,58,0.18), 0 2px 8px -2px rgba(7,30,58,0.10)',
+            'card': '0 1px 4px rgba(15,51,58,0.08), 0 4px 16px rgba(15,51,58,0.06)',
+            'glow': '0 0 24px rgba(45,131,204,0.15)',
           }
         }
       }
@@ -77,27 +77,27 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Hero overlay — warm forest green tones */
+    /* Hero overlay */
     .hero-overlay {
       background: linear-gradient(
         170deg,
-        rgba(46, 81, 38, 0.25) 0%,
-        rgba(46, 81, 38, 0.52) 50%,
-        rgba(27, 47, 23, 0.88) 100%
+        rgba(7, 30, 58, 0.30) 0%,
+        rgba(7, 30, 58, 0.55) 50%,
+        rgba(4, 15, 17, 0.90) 100%
       );
     }
 
-    /* Leaf drift animation */
+    /* Snowflake ambient drift */
     @keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-6px) rotate(10deg)} }
     .drift { animation: drift 6s ease-in-out infinite; }
     .drift-slow { animation: drift 10s ease-in-out infinite; }
 
     /* Card hover lift */
     .lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .lift:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(58,104,48,0.14); }
+    .lift:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(15,51,58,0.14); }
 
     /* Pill navigation active state */
-    .nav-pill.active { background-color: #3a6830; color: white; }
+    .nav-pill.active { background-color: #164b52; color: white; }
 
     /* Section divider */
     .section-label {
@@ -114,23 +114,23 @@
     .check-done { text-decoration: line-through; color: #94a3b8; }
 
     /* Lightbox */
-    #lightbox { background: rgba(27,47,23,0.96); backdrop-filter: blur(12px); }
+    #lightbox { background: rgba(4,15,17,0.95); backdrop-filter: blur(12px); }
 
     /* Search highlight */
     .search-hidden { display: none !important; }
 
     /* Smooth tab underline */
-    .tab-active { border-bottom: 2px solid #3a6830; color: #3a6830; font-weight: 700; }
+    .tab-active { border-bottom: 2px solid #164b52; color: #164b52; font-weight: 700; }
 
-    /* Warm nature card bg */
+    /* Winter card bg */
     .winter-card {
-      background: linear-gradient(135deg, rgba(250,248,242,0.6) 0%, rgba(255,255,255,0.95) 100%);
-      border: 1px solid rgba(160,135,80,0.20);
+      background: linear-gradient(135deg, rgba(240,248,255,0.5) 0%, rgba(255,255,255,0.95) 100%);
+      border: 1px solid rgba(138,196,236,0.25);
     }
   </style>
 </head>
 
-<body class="bg-snow text-slate-800 font-sans antialiased" style="background-color:#faf9f6;">
+<body class="bg-snow text-slate-800 font-sans antialiased">
 
   <!-- ============================================================ -->
   <!-- STICKY HEADER                                                 -->
@@ -141,7 +141,7 @@
       <!-- Logo / Brand -->
       <a href="#top" class="flex items-center gap-2.5 shrink-0 group">
         <div class="w-8 h-8 rounded-xl bg-winter-gradient flex items-center justify-center shadow-sm">
-          <i data-lucide="mountain-snow" class="w-4 h-4 text-pine-200"></i>
+          <i data-lucide="mountain-snow" class="w-4 h-4 text-frost-200"></i>
         </div>
         <div class="hidden sm:block leading-tight">
           <span class="block text-xs font-bold text-pine-800 group-hover:text-pine-600 transition">Waterville Estates</span>
@@ -183,6 +183,7 @@
         <a href="#rules"        class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">📋 Rules</a>
         <a href="#rec-center"   class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">🏊 Rec Center</a>
         <a href="#dining"       class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">🍽️ Dining</a>
+        <a href="#events"       class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">📅 Events</a>
         <a href="#attractions"  class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">🗺️ Day Trips</a>
         <a href="#skiing"       class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">⛷️ Skiing</a>
         <a href="#hiking"       class="nav-pill px-3 py-1 rounded-md text-slate-600 hover:bg-pine-700 hover:text-white transition">🥾 Hiking</a>
@@ -197,48 +198,48 @@
   <!-- ============================================================ -->
   <!-- HERO                                                          -->
   <!-- ============================================================ -->
-  <section id="top" class="relative min-h-[480px] sm:min-h-[560px] flex items-end overflow-hidden bg-pine-900">
+  <section id="top" class="relative min-h-[480px] sm:min-h-[560px] flex items-end overflow-hidden bg-pine-950">
 
     <!-- Background photo -->
     <div class="absolute inset-0 z-0">
       <img
         src="https://a0.muscache.com/im/pictures/hosting/Hosting-1774853304665030782/original/d7bf4dbd-1899-42c4-b6ce-0ba61664161e.jpeg"
         alt="Cozy Condo at Waterville Estates"
-        class="w-full h-full object-cover opacity-55"
+        class="w-full h-full object-cover opacity-50"
       >
       <div class="absolute inset-0 hero-overlay"></div>
     </div>
 
-    <!-- Ambient leaf/nature decorations -->
-    <div class="absolute top-8 right-12 text-pine-300/25 drift-slow pointer-events-none select-none text-5xl">🍃</div>
-    <div class="absolute top-20 left-16 text-pine-200/15 drift pointer-events-none select-none text-3xl">🌿</div>
-    <div class="absolute top-32 right-1/3 text-white/8 drift-slow pointer-events-none select-none text-2xl">🍃</div>
+    <!-- Ambient snowflakes -->
+    <div class="absolute top-8 right-12 text-frost-300/30 drift-slow pointer-events-none select-none text-5xl">❄</div>
+    <div class="absolute top-20 left-16 text-frost-200/20 drift pointer-events-none select-none text-3xl">❄</div>
+    <div class="absolute top-32 right-1/3 text-white/10 drift-slow pointer-events-none select-none text-2xl">❄</div>
 
     <!-- Hero content -->
     <div class="relative z-10 w-full max-w-6xl mx-auto px-4 pb-10 sm:pb-16 pt-24">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold text-pine-100 bg-white/10 border border-white/20 backdrop-blur-sm mb-4 tracking-wider uppercase">
-        <span>🌲</span> White Mountain Retreat &nbsp;•&nbsp; ⭐ 5.0 Guest Favorite
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold text-frost-200 bg-white/10 border border-white/20 backdrop-blur-sm mb-4 tracking-wider uppercase">
+        <span>❄️</span> Winter Mountain Retreat &nbsp;•&nbsp; ⭐ 5.0 Guest Favorite
       </div>
 
       <h1 class="font-serif text-4xl sm:text-6xl font-bold text-white leading-tight tracking-tight mb-3 drop-shadow-lg">
         Cozy Condo at<br>
-        <span class="text-pine-300">Waterville Estates</span>
+        <span class="text-frost-300">Waterville Estates</span>
       </h1>
 
-      <p class="text-white/85 text-sm sm:text-base max-w-xl mb-6 leading-relaxed font-light">
+      <p class="text-frost-100/85 text-sm sm:text-base max-w-xl mb-6 leading-relaxed font-light">
         Welcome! This is your all-in-one digital guidebook — Wi-Fi, pool passes, local eats, ski mountains, hikes, and more. Everything you need for a perfect White Mountains stay.
       </p>
 
       <!-- Stat badges -->
       <div class="flex flex-wrap gap-2 text-xs text-white/80">
         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-pine-300"></i> 7 Laurel Circle #5, Thornton, NH
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-frost-300"></i> 7 Laurel Circle #5, Thornton, NH
         </span>
         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
-          <i data-lucide="clock" class="w-3.5 h-3.5 text-pine-300"></i> Check-in 4 PM &nbsp;•&nbsp; Check-out 10 AM
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-frost-300"></i> Check-in 4 PM &nbsp;•&nbsp; Check-out 10 AM
         </span>
         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 backdrop-blur-sm">
-          <i data-lucide="users" class="w-3.5 h-3.5 text-pine-300"></i> 3 BR &nbsp;•&nbsp; 6 Beds &nbsp;•&nbsp; Sleeps 7–8
+          <i data-lucide="users" class="w-3.5 h-3.5 text-frost-300"></i> 3 BR &nbsp;•&nbsp; 6 Beds &nbsp;•&nbsp; Sleeps 7–8
         </span>
         <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 backdrop-blur-sm">
           <i data-lucide="calendar-check" class="w-3.5 h-3.5 text-emerald-300"></i>
@@ -281,28 +282,28 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Wi-Fi Card -->
-        <div class="rounded-3xl p-6 shadow-winter overflow-hidden relative text-white" style="background: linear-gradient(135deg, #2e5126 0%, #3a6830 60%, #4d8340 100%);">
+        <div class="rounded-3xl p-6 shadow-winter overflow-hidden relative text-white" style="background: linear-gradient(135deg, #0f333a 0%, #164b52 60%, #1e6370 100%);">
           <!-- Decorative circle -->
           <div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-white/5 pointer-events-none"></div>
           <div class="absolute -right-2 -bottom-2 w-24 h-24 rounded-full bg-white/5 pointer-events-none"></div>
 
           <div class="flex items-center justify-between mb-5">
-            <span class="section-label bg-pine-300/20 text-pine-100 border border-pine-300/30">
+            <span class="section-label bg-frost-500/25 text-frost-200 border border-frost-500/30">
               <i data-lucide="wifi" class="w-3.5 h-3.5"></i> In-Condo Wi-Fi
             </span>
-            <span class="text-[10px] text-pine-200/70 font-medium uppercase tracking-wide">Free · High Speed</span>
+            <span class="text-[10px] text-frost-300/70 font-medium uppercase tracking-wide">Free · High Speed</span>
           </div>
 
           <h3 class="font-serif text-xl font-bold text-white mb-5">Connect to the Internet</h3>
 
           <div class="space-y-3 mb-5">
             <div class="bg-white/10 rounded-xl p-3 border border-white/15">
-              <span class="text-[10px] text-pine-200/70 uppercase font-semibold tracking-wider block mb-0.5">Network Name (SSID)</span>
+              <span class="text-[10px] text-frost-200/70 uppercase font-semibold tracking-wider block mb-0.5">Network Name (SSID)</span>
               <span id="wifi-ssid" class="font-mono font-bold text-base text-white tracking-wide">Loading…</span>
             </div>
             <div class="bg-white/10 rounded-xl p-3 border border-white/15 flex items-center justify-between gap-3">
               <div>
-                <span class="text-[10px] text-pine-200/70 uppercase font-semibold tracking-wider block mb-0.5">Password</span>
+                <span class="text-[10px] text-frost-200/70 uppercase font-semibold tracking-wider block mb-0.5">Password</span>
                 <span id="wifi-password" class="font-mono font-bold text-base text-amber-300 tracking-widest">Loading…</span>
               </div>
               <button id="copy-wifi-btn" class="shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-pine-900 font-bold text-xs transition active:scale-95 shadow-sm">
@@ -315,7 +316,7 @@
           <div id="wifi-placeholder-alert" class="p-3 rounded-xl bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs">
             <strong>Host:</strong> Update network &amp; password in <code class="bg-black/30 px-1 rounded">guide-data.js</code>
           </div>
-          <p id="wifi-note" class="text-xs text-pine-200/60 mt-2 leading-relaxed font-light"></p>
+          <p id="wifi-note" class="text-xs text-frost-200/60 mt-2 leading-relaxed font-light"></p>
         </div>
 
         <!-- Trash & Bear Safety Card -->
@@ -393,22 +394,22 @@
     <!-- 4. WATERVILLE ESTATES REC CENTER                           -->
     <!-- ========================================================== -->
     <section id="rec-center" class="scroll-mt-28">
-      <div class="rounded-3xl overflow-hidden shadow-winter" style="background: linear-gradient(145deg, #1b2f17 0%, #2e5126 50%, #243f1e 100%);">
+      <div class="rounded-3xl overflow-hidden shadow-winter" style="background: linear-gradient(145deg, #07131a 0%, #0f333a 50%, #071e3a 100%);">
         <div class="p-6 sm:p-8">
 
           <!-- Header -->
           <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-white/10 mb-6">
             <div>
-              <span class="section-label bg-pine-300/20 text-pine-100 border border-pine-300/30 mb-3 inline-flex">
+              <span class="section-label bg-frost-500/20 text-frost-200 border border-frost-400/30 mb-3 inline-flex">
                 <i data-lucide="waves" class="w-3.5 h-3.5"></i> Included Resort Access
               </span>
               <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
                 Waterville Estates Community Center
               </h2>
-              <p class="text-pine-200/70 text-sm max-w-2xl leading-relaxed font-light">
+              <p class="text-frost-200/70 text-sm max-w-2xl leading-relaxed font-light">
                 As our guest, you enjoy access to one of the White Mountains' finest resort recreation centers — 4 heated pools, hot tubs, the on-site Campton Mountain ski hill, sports courts, trails, and more.
               </p>
-              <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-pine-200 text-xs font-medium">
+              <div class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-frost-200 text-xs font-medium">
                 <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-300"></i>
                 <span><strong class="text-amber-300">Hours:</strong> Sun–Thu 10 AM–8 PM &nbsp;•&nbsp; Fri–Sat 10 AM–10 PM</span>
               </div>
@@ -419,7 +420,7 @@
                 <i data-lucide="navigation" class="w-4 h-4"></i> Directions (4 min)
               </a>
               <a href="https://watervilleestates.net" target="_blank"
-                 class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-pine-200 font-medium text-xs transition border border-white/15">
+                 class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-frost-200 font-medium text-xs transition border border-white/15">
                 <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Official Site
               </a>
             </div>
@@ -430,21 +431,21 @@
             <h3 class="text-sm font-bold text-amber-300 flex items-center gap-2 mb-3">
               <i data-lucide="ticket" class="w-4 h-4"></i> How Your Guest Passes Work
             </h3>
-            <ul id="rec-instructions-list" class="space-y-2 text-sm text-pine-100/85"></ul>
+            <ul id="rec-instructions-list" class="space-y-2 text-sm text-frost-100/85"></ul>
           </div>
 
           <!-- Pricing Grid -->
-          <h4 class="text-[11px] font-bold text-pine-300/70 uppercase tracking-widest mb-3">Daily Pass Fee Schedule (Payable at Rec Desk)</h4>
+          <h4 class="text-[11px] font-bold text-frost-300/70 uppercase tracking-widest mb-3">Daily Pass Fee Schedule (Payable at Rec Desk)</h4>
           <div id="rec-pricing-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"></div>
 
           <!-- Amenities Grid -->
-          <h4 class="text-[11px] font-bold text-pine-300/70 uppercase tracking-widest mb-3">On-Site Facilities Included with Access</h4>
+          <h4 class="text-[11px] font-bold text-frost-300/70 uppercase tracking-widest mb-3">On-Site Facilities Included with Access</h4>
           <div id="rec-amenities-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"></div>
 
           <!-- Rec Center Photos -->
           <div class="border-t border-white/10 pt-6">
-            <h4 class="text-[11px] font-bold text-pine-300/70 uppercase tracking-widest mb-4 flex items-center gap-2">
-              <i data-lucide="camera" class="w-4 h-4 text-pine-400"></i> Recreation Center Photos
+            <h4 class="text-[11px] font-bold text-frost-300/70 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="camera" class="w-4 h-4 text-frost-400"></i> Recreation Center Photos
             </h4>
             <div id="rec-photos-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
           </div>
@@ -473,6 +474,20 @@
         </div>
       </div>
       <div id="dining-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- LOCAL EVENTS & HAPPENINGS                                  -->
+    <!-- ========================================================== -->
+    <section id="events" class="scroll-mt-28">
+      <div class="mb-6">
+        <span class="section-label bg-indigo-50 text-indigo-800 border border-indigo-200 mb-2 inline-flex">
+          <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Local Happenings & Festivals
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Area Events & Calendars</h2>
+        <p class="text-sm text-slate-500">Live music, seasonal festivals, town gatherings, and mountain entertainment schedules.</p>
+      </div>
+      <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
     </section>
 
     <!-- ========================================================== -->
@@ -573,7 +588,7 @@
     <!-- 13. EMERGENCY CONTACTS                                     -->
     <!-- ========================================================== -->
     <section id="emergency" class="scroll-mt-28">
-      <div class="rounded-3xl overflow-hidden shadow-winter" style="background: linear-gradient(145deg, #1b2f17 0%, #243f1e 100%);">
+      <div class="rounded-3xl overflow-hidden shadow-winter" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
         <div class="p-6 sm:p-8">
           <div class="pb-5 border-b border-white/10 mb-6">
             <span class="section-label bg-red-500/20 text-red-400 border border-red-500/30 mb-3 inline-flex">
@@ -593,7 +608,7 @@
               <p class="text-xs text-slate-400 leading-relaxed">Text or call your host directly — we're happy to help anytime.</p>
             </div>
             <div class="flex gap-2 shrink-0">
-              <a id="host-call-btn" href="tel:" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pine-600 hover:bg-pine-500 text-white text-xs font-bold transition">
+              <a id="host-call-btn" href="tel:" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pine-700 hover:bg-pine-600 text-white text-xs font-bold transition">
                 <i data-lucide="phone" class="w-4 h-4"></i> Call Host
               </a>
               <a id="host-text-btn" href="sms:" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-pine-950 text-xs font-bold transition">
@@ -632,7 +647,7 @@
 
   <!-- Toast Notification Popup -->
   <div id="update-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 ease-out">
-    <div class="bg-pine-950/95 text-white px-4 py-3 rounded-2xl shadow-2xl border border-pine-400/30 backdrop-blur-md flex items-center gap-3">
+    <div class="bg-slate-900/95 text-white px-4 py-3 rounded-2xl shadow-2xl border border-frost-400/30 backdrop-blur-md flex items-center gap-3">
       <div class="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-400 flex items-center justify-center shrink-0">
         <i data-lucide="check" class="w-4 h-4"></i>
       </div>
