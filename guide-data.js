@@ -1,4 +1,4 @@
-// =============================================================================
+﻿// =============================================================================
 // COZY CONDO AT WATERVILLE ESTATES - GUEST GUIDEBOOK DATA
 // =============================================================================
 // HOST INSTRUCTIONS:
@@ -10,7 +10,7 @@ const GUIDE_DATA = {
   // ---------------------------------------------------------------------------
   // GUIDE METADATA & LAST UPDATED
   // ---------------------------------------------------------------------------
-  lastUpdated: "November 14, 2026",
+  lastUpdated: "November 22, 2026",
   version: "2.1",
 
   // ---------------------------------------------------------------------------
@@ -23,12 +23,12 @@ const GUIDE_DATA = {
     googleMapsUrl: "https://maps.google.com/?q=7+Laurel+Circle+Thornton+NH+03223",
     checkInTime: "4:00 PM",
     checkOutTime: "10:00 AM",
-    rating: "5.0 ★",
-    specs: "3 Bedrooms • 6 Beds • 2 Full Baths • Up to 7-8 Guests",
+    rating: "5.0 â˜…",
+    specs: "3 Bedrooms â€¢ 6 Beds â€¢ 2 Full Baths â€¢ Up to 7-8 Guests",
 
     // Website URL used to generate the QR Code on the printable flyer
     // (Update this once you host the site or connect a domain!)
-    liveWebsiteUrl: "https://cozy-condo-waterville.vercel.app",
+    liveWebsiteUrl: "https://greggmccalla-byte.github.io/CGM/",
     
     wifi: {
       network: "Laurel5",
@@ -38,8 +38,8 @@ const GUIDE_DATA = {
 
     trash: {
       summary: "Laurel Circle Community Dumpster (Green Bear-Proof Enclosure)",
-      instructions: "All household trash must be tied in bags and placed in the designated community dumpster for Laurel Circle / White Birches, located right at the entrance to the cluster parking area (look for the green bear-proof enclosure). Please ensure the dumpster lid and latch are securely closed after depositing trash.",
-      dumpsterLocation: "Entrance to the cluster parking area (green bear-proof enclosure)."
+      instructions: "All household trash must be tied in bags and placed in the designated community dumpster for Laurel Circle / White Birches, located on the left as you exit the front door (look for the bear-proof dumpster). Please ensure the dumpster lid and latch are securely closed after depositing trash.",
+      dumpsterLocation: "located on the left as you exit the front door (look for the bear-proof dumpster)."
     },
 
     // Contact info
@@ -132,7 +132,7 @@ const GUIDE_DATA = {
     {
       icon: "parking",
       title: "Parking Rules",
-      desc: "Park only in the designated parking area in front of the building. Do not park on roadways or grassy areas, especially during winter snow-plowing operations."
+      desc: "Park only in the designated parking area in front of the property.  There are two parking spaces, one in front of the walkway and to the left. Additional parking can be found behind the dumpster. Do not park on roadways or grassy areas, especially during winter snow-plowing operations."
     }
   ],
 
@@ -143,9 +143,9 @@ const GUIDE_DATA = {
     overview: "Waterville Estates is a premier resort community nestled in the White Mountains. As our guest, you enjoy access to the extensive multimillion-dollar recreation facilities!",
     location: "562 Winterbrook Rd, Campton, NH 03223 (about 3-4 minutes drive down the road)",
     mapUrl: "https://maps.google.com/?q=Waterville+Estates+Community+Center+Campton+NH",
-    website: "https://watervilleestates.net",
+    website: "https://www.waterville-estates.com/our-facilities",
     phone: "(603) 726-3082",
-    hours: "Sun–Thu: 10 AM – 8 PM  |  Fri & Sat: 10 AM – 10 PM",
+    hours: "Sunâ€“Thu: 10 AM â€“ 8 PM  |  Fri & Sat: 10 AM â€“ 10 PM",
     passInstructions: [
       "ONE guest pass to the Recreation Center is INCLUDED with your stay.",
       "Day passes must be purchased at the front desk for all additional guests in your party.",
@@ -176,7 +176,7 @@ const GUIDE_DATA = {
       }
     ],
     // Hours sourced from waterville-estates.com/our-facilities/recreation-center
-    hours: "Sun–Thu: 10 AM – 8 PM  |  Fri & Sat: 10 AM – 10 PM",
+    hours: "Sunâ€“Thu: 10 AM â€“ 8 PM  |  Fri & Sat: 10 AM â€“ 10 PM",
     amenities: [
       { name: "2 Indoor Heated Pools", desc: "Open year-round with lounge chairs, large windows, and pool noodles. Perfect for laps or family fun any time of year." },
       { name: "2 Outdoor Heated Pools", desc: "Seasonally open with walk-in steps, sundeck, lounge chairs, shade umbrellas, and tiered wooden decking overlooking forested hills." },
@@ -184,17 +184,17 @@ const GUIDE_DATA = {
       { name: "Locker Rooms & Saunas", desc: "Full locker rooms with dry-heat saunas for men and women, available to all rec center guests." },
       { name: "Fitness Center", desc: "Commercial treadmills, stationary bikes, multi-station weight machines, free weights, and wall-mounted workout guides." },
       { name: "Campton Mountain Ski Area", desc: "On-site downhill ski hill with chairlift and rope tow. Night skiing on weekends. Ski lessons available." },
-      { name: "Cross-Country Skiing & Snowshoeing", desc: "Miles of groomed and marked trails winding through the community — right out the door." },
+      { name: "Cross-Country Skiing & Snowshoeing", desc: "Miles of groomed and marked trails winding through the community â€” right out the door." },
       { name: "Community Pond, Beach & Fishing", desc: "Sandy swimming beach with a floating diving raft. Catch-and-release fishing on the pond, open to all guests." },
-      { name: "Sports Courts", desc: "2 basketball courts, 2 pickleball courts, 3 tennis courts, and a sand volleyball court — all lit for evening play." },
-      { name: "Game Room & Pub", desc: "Billiards, arcade games, and a relaxed pub serving your favorite beverages — great for rainy afternoons." },
+      { name: "Sports Courts", desc: "2 basketball courts, 2 pickleball courts, 3 tennis courts, and a sand volleyball court â€” all lit for evening play." },
+      { name: "Game Room & Pub", desc: "Billiards, arcade games, and a relaxed pub serving your favorite beverages â€” great for rainy afternoons." },
       { name: "Playground & Horseshoe Pits", desc: "Outdoor playground with swings for younger kids, plus horseshoe pits for the adults." },
       { name: "Hiking Trails & Nature Walks", desc: "Miles of community hiking trails suitable for all skill levels, connecting to the White Mountain trail network." }
     ],
     photos: [
       {
         url: "https://www.waterville-estates.com/wp-content/uploads/2014/04/pool3.jpg",
-        title: "Indoor Heated Pool — Lounge",
+        title: "Indoor Heated Pool â€” Lounge",
         caption: "Rectangular indoor pool with chaise lounges and large windows"
       },
       {
@@ -267,7 +267,7 @@ const GUIDE_DATA = {
       address: "25 South Mountain Dr, Lincoln, NH 03251",
       driveTime: "18 mins",
       mapUrl: "https://maps.google.com/?q=White+Mountain+Bagel+Co+Lincoln+NH",
-      website: "https://whitemountainbagel.com"
+      website: "https://white-mountain-bagel-co.placejoys.com/"
     },
     {
       name: "The Mountain Pub (Waterville Estates)",
@@ -277,7 +277,7 @@ const GUIDE_DATA = {
       address: "562 Winterbrook Rd, Campton, NH 03223",
       driveTime: "4 mins",
       mapUrl: "https://maps.google.com/?q=Waterville+Estates+Campton+NH",
-      website: "https://watervilleestates.net"
+      website: "https://www.waterville-estates.com/our-facilities"
     },
     {
       name: "Covered Bridge Farm Table",
@@ -370,16 +370,16 @@ const GUIDE_DATA = {
       type: "On-Site Community Ski Hill",
       driveTime: "4 mins (Inside Waterville Estates)",
       desc: "Waterville Estates' own ski hill! Features a double chairlift, rope tow, night skiing under lights on Friday/Saturday, and a warm summit lodge pub.",
-      specs: "Rope Tow & Chairlift • Night Skiing • Beginner & Intermediate • Summit Lodge",
+      specs: "Rope Tow & Chairlift â€¢ Night Skiing â€¢ Beginner & Intermediate â€¢ Summit Lodge",
       mapUrl: "https://maps.google.com/?q=Campton+Mountain+Ski+Area+Campton+NH",
-      website: "https://watervilleestates.net/campton-mountain"
+      website: "https://www.waterville-estates.com/our-facilities/campton-mountian-ski-area"
     },
     {
       name: "Waterville Valley Resort",
       type: "Full-Service Ski Mountain & Nordic Center",
       driveTime: "18 mins",
       desc: "Surrounded by White Mountain National Forest peaks. Offers 265 skiable acres, 4,000+ ft summit, extensive terrain parks, Nordic ski center, and snow tubing.",
-      specs: "265 Acres • 60+ Trails • 2,020' Vertical • Terrain Parks • Tubing Hill",
+      specs: "265 Acres â€¢ 60+ Trails â€¢ 2,020' Vertical â€¢ Terrain Parks â€¢ Tubing Hill",
       mapUrl: "https://maps.google.com/?q=Waterville+Valley+Resort+NH",
       website: "https://waterville.com"
     },
@@ -388,7 +388,7 @@ const GUIDE_DATA = {
       type: "Major Ski Resort (Lincoln, NH)",
       driveTime: "22 mins",
       desc: "One of New England's premier destinations featuring the Kancamagus 8 (high-speed eight-person heated chairlift), gondola, award-winning terrain parks, and great snowmaking.",
-      specs: "61 Trails • 3 Peaks • 2,100' Vertical • Heated 8-Pack Lift • Gondola",
+      specs: "61 Trails â€¢ 3 Peaks â€¢ 2,100' Vertical â€¢ Heated 8-Pack Lift â€¢ Gondola",
       mapUrl: "https://maps.google.com/?q=Loon+Mountain+Resort+Lincoln+NH",
       website: "https://loonmtn.com"
     },
@@ -397,16 +397,16 @@ const GUIDE_DATA = {
       type: "State Park Ski Mountain (Franconia Notch)",
       driveTime: "26 mins",
       desc: "Historic big-mountain terrain owned by the State of New Hampshire. Highest ski summit in NH, challenging steeps, and home to the iconic Cannon Aerial Tramway.",
-      specs: "97 Trails • 4,080' Summit • 2,180' Vertical • Aerial Tramway • Epic Views",
+      specs: "97 Trails â€¢ 4,080' Summit â€¢ 2,180' Vertical â€¢ Aerial Tramway â€¢ Epic Views",
       mapUrl: "https://maps.google.com/?q=Cannon+Mountain+Franconia+NH",
-      website: "https://cannonmtn.com"
+      website: "https://www.cannonmt.com/"
     },
     {
       name: "Bretton Woods",
       type: "NH's Largest Ski Area (Omni Mount Washington)",
       driveTime: "45 mins",
       desc: "Voted #1 for grooming and snow quality in the East! Scenic views of Mount Washington, 8-passenger Skyway Gondola, wide cruising boulevards, and glades.",
-      specs: "468 Acres • 63 Trails • 10 Lifts • 8-Passenger Gondola • Night Skiing",
+      specs: "468 Acres â€¢ 63 Trails â€¢ 10 Lifts â€¢ 8-Passenger Gondola â€¢ Night Skiing",
       mapUrl: "https://maps.google.com/?q=Bretton+Woods+Ski+Area+NH",
       website: "https://brettonwoods.com"
     }
@@ -423,12 +423,12 @@ const GUIDE_DATA = {
       driveTime: "Steps from your door",
       desc: "Scenic, marked woodland trails winding through Waterville Estates. Perfect for a morning jog, leisurely walk, dog-free nature stroll, or winter snowshoeing.",
       mapUrl: "https://maps.google.com/?q=Waterville+Estates+Campton+NH",
-      website: "https://watervilleestates.net"
+      website: "https://www.waterville-estates.com/our-facilities/outdoor-recreation"
     },
     {
       name: "Welch-Dickey Loop Trail",
       difficulty: "Moderate - Strenuous (Ledges)",
-      distance: "4.4 Mile Loop • 1,750' Elevation",
+      distance: "4.4 Mile Loop â€¢ 1,750' Elevation",
       driveTime: "12 mins (Thornton/Campton)",
       desc: "Ranked among the top hikes in all of New England! Features exposed granite ledges with jaw-dropping 360-degree views of the Mad River Notch.",
       mapUrl: "https://maps.google.com/?q=Welch+Dickey+Trailhead+Thornton+NH",
@@ -446,16 +446,16 @@ const GUIDE_DATA = {
     {
       name: "Artist's Bluff & Bald Mountain",
       difficulty: "Easy to Moderate",
-      distance: "1.5 Mile Loop • 430' Elevation",
+      distance: "1.5 Mile Loop â€¢ 430' Elevation",
       driveTime: "24 mins (Franconia Notch)",
       desc: "Short family-friendly hike offering the most photographed vista in New Hampshire overlooking Echo Lake and the dramatic Franconia Notch pass.",
       mapUrl: "https://maps.google.com/?q=Artist+Bluff+Trailhead+Franconia+NH",
-      website: "https://www.alltrails.com/trail/us/new-hampshire/artists-bluff-trail"
+      website: "https://www.alltrails.com/trail/us/new-hampshire/artist-bluff-trail"
     },
     {
       name: "Mount Pemigewasset (Indian Head)",
       difficulty: "Moderate",
-      distance: "3.7 Miles Out & Back • 1,250' Elevation",
+      distance: "3.7 Miles Out & Back â€¢ 1,250' Elevation",
       driveTime: "19 mins (Lincoln)",
       desc: "Gentle switchbacks lead through quiet hardwood forest up to a massive open granite shelf with sweeping panoramic views of Mount Moosilauke and the Kinsmans.",
       mapUrl: "https://maps.google.com/?q=Mount+Pemigewasset+Trailhead+Lincoln+NH",
@@ -468,7 +468,7 @@ const GUIDE_DATA = {
       driveTime: "21 mins (Franconia Notch)",
       desc: "A mesmerizing 30-foot granite pothole smoothed over 25,000 years by glacial meltwater. Short paved walk suitable for small children and strollers.",
       mapUrl: "https://maps.google.com/?q=The+Basin+Franconia+Notch+NH",
-      website: "https://nhstateparks.org"
+      website: "https://www.alltrails.com/trail/us/new-hampshire/basin-cascade-trail"
     }
   ],
 
@@ -536,6 +536,76 @@ const GUIDE_DATA = {
   ],
 
   // ---------------------------------------------------------------------------
+  // LOCAL EVENTS & HAPPENINGS CALENDARS
+  // ---------------------------------------------------------------------------
+  events: [
+    {
+      name: "Waterville Estates Community Happenings",
+      category: "On-Site / Resort",
+      driveTime: "3â€“4 mins",
+      desc: "Weekly happenings right at the Community Center & Mountain Pub! Live acoustic music, trivia nights, adult pool volleyball, holiday craft events, and seasonal community socials.",
+      tags: ["Live Music", "Mountain Pub", "Family Bingo", "Community"],
+      website: "https://www.waterville-estates.com/happenings/event"
+    },
+    {
+      name: "Waterville Valley Resort Event Calendar",
+      category: "Valley & Town Square",
+      driveTime: "12 mins",
+      desc: "Year-round festivities in Waterville Valley! Open-air summer concerts at Town Square gazebo, seasonal parades, winter fireworks displays, ice-skating shows, and ski mountain events.",
+      tags: ["Town Square", "Outdoor Concerts", "Fireworks", "Festivals"],
+      website: "https://www.waterville.com/event-calendar"
+    },
+    {
+      name: "Central NH Chamber of Commerce Calendar",
+      category: "Campton, Thornton & Plymouth",
+      driveTime: "5â€“15 mins",
+      desc: "Comprehensive community calendar for the Pemi-Baker valley towns. Discover regional craft fairs, farmers markets, business networking, holiday strolls, and cultural events.",
+      tags: ["Farmers Markets", "Craft Fairs", "Town Festivals", "Pemi Valley"],
+      website: "https://centralnh.org/calendar/?v=bc74609e35bc"
+    },
+    {
+      name: "LocalNH Lincoln & Woodstock Events",
+      category: "Lincoln & Woodstock",
+      driveTime: "15â€“18 mins",
+      desc: "Hyper-local entertainment guide for Lincoln and North Woodstock. Weekly live music lineups, brewery trivia, restaurant specials, comedy nights, and weekend community gatherings.",
+      tags: ["Nightlife", "Live Music", "Brewery Events", "Local Happenings"],
+      website: "https://localnh.com/towns/lincoln/events"
+    },
+    {
+      name: "Visit White Mountains Master Events Calendar",
+      category: "Regional White Mountains",
+      driveTime: "Regional",
+      desc: "The official White Mountains regional guide for major annual attractions: fall foliage festivals, holiday lighting celebrations, artisan craft fairs, and scenic train events.",
+      tags: ["Regional Festivals", "Fall Foliage", "Artisan Fairs", "Family Fun"],
+      website: "https://www.visitwhitemountains.com/events/"
+    },
+    {
+      name: "Western White Mountains Chamber of Commerce",
+      category: "Lincoln, Woodstock & Franconia",
+      driveTime: "15â€“20 mins",
+      desc: "Official calendar for the Western White Mountains region. Features the annual Rubber Duck Regatta, Oktoberfest celebrations, Easter egg hunts, and winter holiday parades.",
+      tags: ["Oktoberfest", "Community Parades", "Holiday Events", "Chamber Events"],
+      website: "https://westernwhitemtns.com/events/"
+    },
+    {
+      name: "The Flying Monkey Movie House & Performance Center",
+      category: "Live Music & Theater (Plymouth)",
+      driveTime: "15 mins",
+      desc: "Premier historic 450-seat theater in downtown Plymouth. Features nationally touring rock & folk artists, stand-up comedy, film screenings, and dinner theater seating.",
+      tags: ["Concerts", "Stand-Up Comedy", "Live Theater", "Downtown Plymouth"],
+      website: "https://flyingmonkeynh.com/"
+    },
+    {
+      name: "Loon Mountain Resort Events",
+      category: "Mountain & Winter Sports",
+      driveTime: "20 mins",
+      desc: "Major alpine sports events, winter rail jams, aprÃ©s-ski deck entertainment, torchlight parades, and summer mountain bike festivals at Loon Mountain.",
+      tags: ["AprÃ©s-Ski", "Snowboard Comps", "Torchlight Parade", "Mountain Festivals"],
+      website: "https://www.loonmtn.com/events"
+    }
+  ],
+
+  // ---------------------------------------------------------------------------
   // LOCAL ATTRACTIONS & FAMILY ADVENTURES
   // ---------------------------------------------------------------------------
   attractions: [
@@ -561,7 +631,7 @@ const GUIDE_DATA = {
       driveTime: "24 mins (Franconia)",
       desc: "Ride North America's first aerial tramway to the 4,080-foot summit of Cannon Mountain. On clear days you can view 4 states and Canada! Also explore Echo Lake beach and boat rentals.",
       mapUrl: "https://maps.google.com/?q=Cannon+Mountain+Aerial+Tramway+Franconia+NH",
-      website: "https://nhstateparks.org"
+      website: "https://www.cannonmt.com/attractions/aerial-tramway"
     },
     {
       name: "Whale's Tale Water Park",
@@ -657,8 +727,8 @@ const GUIDE_DATA = {
       title: "Heating, Thermostats & A/C",
       icon: "thermometer",
       steps: [
-        "In winter, keep thermostats set comfortably between 68°F and 71°F.",
-        "When checking out in winter, please set thermostats to 60°F (never turn heat off completely to prevent frozen pipes).",
+        "In winter, keep thermostats set comfortably between 68Â°F and 71Â°F.",
+        "When checking out in winter, please set thermostats to 55Â°F (never turn heat off completely to prevent frozen pipes).",
         "In summer, utilize ceiling fans and A/C units for cooling. Please turn off A/C when leaving for the day."
       ]
     },
@@ -699,10 +769,10 @@ const GUIDE_DATA = {
   // ---------------------------------------------------------------------------
   checkOutChecklist: [
     { text: "Load and start the dishwasher (detergent tabs under the sink).", done: false },
-    { text: "Take all tied garbage and recycling to the community dumpster (green bear-proof enclosure at parking entrance).", done: false },
-    { text: "Strip used bed sheets and leave them folded on top of each bed.", done: false },
+    { text: "Take all tied garbage and recycling to the community dumpster. Located on the left as you exit the front door (look for the bear-proof dumpster).", done: false },
+    { text: "Strip used bed sheets and leave them on top of each bed.", done: false },
     { text: "Place used towels on the bathroom floor or in the laundry hamper.", done: false },
-    { text: "Set winter thermostats to 60°F (or turn off A/C in summer).", done: false },
+    { text: "Set winter thermostats to 55Â°F (or turn off A/C in summer).", done: false },
     { text: "Check all drawers, under beds, and outlets for phone chargers and personal items.", done: false },
     { text: "Turn off all lights, close and lock all windows and exterior doors.", done: false }
   ],
@@ -732,3 +802,4 @@ const GUIDE_DATA = {
     { url: "https://d3w216np43fnr4.cloudfront.net/6103/73057/7.jpg?version=1508355127", caption: "Waterville Estates Recreation Pond & Beach" }
   ]
 };
+
