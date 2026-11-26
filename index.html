@@ -366,6 +366,10 @@
       >
       <button id="clear-search" class="hidden text-xs font-semibold text-slate-400 hover:text-slate-600 px-2 shrink-0 transition">Clear ✕</button>
     </div>
+    <div id="search-status" class="hidden mt-2.5 flex items-center justify-between gap-2 px-3.5 py-2 rounded-xl bg-pine-50 border border-pine-200 text-xs text-pine-900 shadow-xs">
+      <span id="search-status-text" class="font-medium"></span>
+      <button id="search-status-reset" type="button" class="text-pine-700 hover:text-pine-950 font-bold underline shrink-0">Reset</button>
+    </div>
   </div>
 
   <!-- ============================================================ -->
@@ -376,7 +380,7 @@
     <!-- ============================================================ -->
     <!-- GROUP: YOUR STAY                                             -->
     <!-- ============================================================ -->
-    <div class="space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
+    <div class="guide-group space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
       <!-- Group Header -->
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div class="flex items-center gap-3">
@@ -398,7 +402,7 @@
     <!-- 0. DIGITAL ARRIVAL PASS (Enso Connect Style)               -->
     <!-- ========================================================== -->
     <section id="arrival-pass" class="scroll-mt-28">
-      <div class="rounded-3xl overflow-hidden shadow-winter border border-pine-800/30 text-white" style="background: linear-gradient(135deg, #07131a 0%, #0f333a 55%, #164b52 100%);">
+      <div class="rounded-3xl overflow-hidden shadow-winter border border-pine-800/30 text-white search-target" data-search="arrival pass check-in check-out 4:00 pm 10:00 am keyless smart lock door code address 7 laurel circle thornton nh parking spaces snow plow" style="background: linear-gradient(135deg, #07131a 0%, #0f333a 55%, #164b52 100%);">
         <!-- Pass Header Bar -->
         <div class="px-6 py-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-black/20">
           <div class="flex items-center gap-2.5">
@@ -487,7 +491,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Wi-Fi Card -->
-        <div class="rounded-3xl p-6 shadow-winter overflow-hidden relative text-white" style="background: linear-gradient(135deg, #0f333a 0%, #164b52 60%, #1e6370 100%);">
+        <div class="rounded-3xl p-6 shadow-winter overflow-hidden relative text-white search-target" data-search="wifi wi-fi internet network ssid password router qr code laurel5 birches" style="background: linear-gradient(135deg, #0f333a 0%, #164b52 60%, #1e6370 100%);">
           <!-- Decorative circle -->
           <div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full bg-white/5 pointer-events-none"></div>
           <div class="absolute -right-2 -bottom-2 w-24 h-24 rounded-full bg-white/5 pointer-events-none"></div>
@@ -533,7 +537,7 @@
         </div>
 
         <!-- Trash & Bear Safety Card -->
-        <div class="bg-white rounded-3xl p-6 shadow-card border border-slate-200 flex flex-col justify-between">
+        <div class="bg-white rounded-3xl p-6 shadow-card border border-slate-200 flex flex-col justify-between search-target" data-search="trash garbage recycling disposal dumpster bear proof black bear warning">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="section-label bg-emerald-50 text-emerald-800 border border-emerald-200">
@@ -579,7 +583,7 @@
     <!-- 9. CHECK-OUT CHECKLIST (Your Stay group)                   -->
     <!-- ========================================================== -->
     <section id="checkout" class="scroll-mt-28">
-      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-6 sm:p-8 border border-amber-200 shadow-sm search-target" data-search="check-out checkout checklist departure 10:00 am dishwasher sheets towels thermostat lights lock">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-5 border-b border-amber-200/60">
           <div>
             <span class="section-label bg-amber-200/60 text-amber-900 mb-2 inline-flex">
@@ -602,7 +606,7 @@
     <!-- ============================================================ -->
     <!-- GROUP: THE HOME                                              -->
     <!-- ============================================================ -->
-    <div class="space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
+    <div class="guide-group space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
       <!-- Group Header -->
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-frost-700 flex items-center justify-center shadow-sm shrink-0">
@@ -656,7 +660,7 @@
     <!-- ============================================================ -->
     <!-- GROUP: THE RESORT                                            -->
     <!-- ============================================================ -->
-    <div class="space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
+    <div class="guide-group space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
       <!-- Group Header -->
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-pine-950 flex items-center justify-center shadow-sm shrink-0">
@@ -672,7 +676,7 @@
     <!-- 4. WATERVILLE ESTATES REC CENTER                           -->
     <!-- ========================================================== -->
     <section id="rec-center" class="scroll-mt-28">
-      <div class="rounded-3xl overflow-hidden shadow-winter" style="background: linear-gradient(145deg, #07131a 0%, #0f333a 50%, #071e3a 100%);">
+      <div class="rounded-3xl overflow-hidden shadow-winter search-target" data-search="rec center recreation community center waterville estates pools hot tubs pass passes ski pass fee schedule amenities campton mountain basketball pickleball tennis game room pub hours" style="background: linear-gradient(145deg, #07131a 0%, #0f333a 50%, #071e3a 100%);">
         <div class="p-6 sm:p-8">
 
           <!-- Header -->
@@ -750,7 +754,7 @@
     <!-- ============================================================ -->
     <!-- GROUP: EXPLORE                                               -->
     <!-- ============================================================ -->
-    <div class="space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
+    <div class="guide-group space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
       <!-- Group Header -->
       <div class="flex flex-col gap-4">
         <div class="flex items-center gap-3">
@@ -877,7 +881,7 @@
     <!-- ============================================================ -->
     <!-- GROUP: CONTACT                                               -->
     <!-- ============================================================ -->
-    <div class="space-y-10 pt-10 pb-14">
+    <div class="guide-group space-y-10 pt-10 pb-14">
       <!-- Group Header -->
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-slate-800 flex items-center justify-center shadow-sm shrink-0">
@@ -905,7 +909,7 @@
           <div id="emergency-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8"></div>
 
           <!-- Host Contact Bar -->
-          <div class="bg-white/5 rounded-2xl p-5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="bg-white/5 rounded-2xl p-5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 search-target" data-search="host contact call text phone message questions help">
             <div>
               <h4 class="text-base font-bold text-white flex items-center gap-2 mb-1">
                 <i data-lucide="message-square" class="w-5 h-5 text-amber-400"></i> Questions During Your Stay?

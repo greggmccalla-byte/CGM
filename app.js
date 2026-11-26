@@ -621,7 +621,8 @@ function renderHouseRules() {
   if (!grid) return;
 
   grid.innerHTML = GUIDE_DATA.houseRules.map(r => `
-    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 lift winter-card">
+    <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 lift winter-card search-target"
+         data-search="${r.title} ${r.desc} house rules community standards">
       <h4 class="text-sm font-bold text-slate-900 mb-1 flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-pine-600 shrink-0"></span>
         ${r.title}
@@ -715,7 +716,8 @@ function renderEmergency() {
   if (!grid) return;
 
   grid.innerHTML = GUIDE_DATA.emergency.map(em => `
-    <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/80 flex flex-col justify-between">
+    <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/80 flex flex-col justify-between search-target"
+         data-search="${em.title} ${em.name} ${em.phone} ${em.address || ''} ${em.note || ''} emergency hospital urgent care police fire 911">
       <div>
         <span class="text-[11px] font-bold text-red-400 uppercase tracking-wider block mb-1">${em.title}</span>
         <h4 class="text-base font-bold text-white mb-1">${em.name}</h4>
@@ -741,44 +743,80 @@ function renderEmergency() {
 // 14. SEARCH BAR FILTER
 // -----------------------------------------------------------------------------
 function setupSearch() {
-  const searchInput = document.getElementById('search-input');
-  const clearBtn    = document.getElementById('clear-search');
+  const searchInput  = document.getElementById('search-input');
+  const clearBtn     = document.getElementById('clear-search');
+  const statusBar    = document.getElementById('search-status');
+  const statusText   = document.getElementById('search-status-text');
+  const statusReset  = document.getElementById('search-status-reset');
   if (!searchInput) return;
 
   function applySearch(q) {
+    const hasQuery = q.length > 0;
     if (clearBtn) {
-      clearBtn.classList.toggle('hidden', q.length === 0);
+      clearBtn.classList.toggle('hidden', !hasQuery);
     }
 
-    // Ensure all Explore sections are visible while searching
-    if (q.length > 0 && typeof window.setActiveExploreTab === 'function') {
+    // Ensure all Explore sections are visible before filtering while searching
+    if (hasQuery && typeof window.setActiveExploreTab === 'function') {
       window.setActiveExploreTab('all', false);
     }
 
+    let matchCount = 0;
     document.querySelectorAll('.search-target').forEach(t => {
-      const haystack = (t.dataset.search || '').toLowerCase();
-      const matches = !q || haystack.includes(q);
+      const haystack = `${t.dataset.search || ''} ${t.textContent || ''}`.toLowerCase();
+      const matches = !hasQuery || haystack.includes(q);
       t.style.display = matches ? '' : 'none';
+      if (hasQuery && matches) matchCount++;
 
       // Auto-expand matching appliance accordions during search
       if (t.classList.contains('appliance-card')) {
-        setApplianceExpanded(t, q.length > 0 && matches);
+        setApplianceExpanded(t, hasQuery && matches);
       }
     });
 
+    // Hide empty sections & empty group containers so matching results rise to the top
+    document.querySelectorAll('main section[id]').forEach(sec => {
+      const targets = sec.querySelectorAll('.search-target');
+      if (targets.length === 0) return;
+      const hasVisibleTarget = Array.from(targets).some(t => t.style.display !== 'none');
+      sec.style.display = (!hasQuery || hasVisibleTarget) ? '' : 'none';
+    });
+
+    document.querySelectorAll('.guide-group').forEach(grp => {
+      const sections = grp.querySelectorAll('section[id]');
+      if (sections.length === 0) return;
+      const hasVisibleSection = Array.from(sections).some(
+        sec => sec.style.display !== 'none' && !sec.classList.contains('hidden')
+      );
+      grp.style.display = (!hasQuery || hasVisibleSection) ? '' : 'none';
+    });
+
+    // Show live match count or zero-result message
+    if (statusBar && statusText) {
+      if (!hasQuery) {
+        statusBar.classList.add('hidden');
+      } else {
+        statusBar.classList.remove('hidden');
+        statusText.textContent = matchCount > 0
+          ? `Showing ${matchCount} ${matchCount === 1 ? 'match' : 'matches'} for "${searchInput.value.trim()}"`
+          : `No matches found for "${searchInput.value.trim()}" — try another keyword or reset.`;
+      }
+    }
+
     syncToggleAllAppliancesLabel();
+  }
+
+  function resetSearch() {
+    searchInput.value = '';
+    applySearch('');
   }
 
   searchInput.addEventListener('input', e => {
     applySearch(e.target.value.toLowerCase().trim());
   });
 
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      applySearch('');
-    });
-  }
+  if (clearBtn) clearBtn.addEventListener('click', resetSearch);
+  if (statusReset) statusReset.addEventListener('click', resetSearch);
 }
 
 // -----------------------------------------------------------------------------
