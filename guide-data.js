@@ -1,4 +1,4 @@
-﻿// =============================================================================
+// =============================================================================
 // COZY CONDO AT WATERVILLE ESTATES - GUEST GUIDEBOOK DATA
 // =============================================================================
 // HOST INSTRUCTIONS:
@@ -23,8 +23,8 @@ const GUIDE_DATA = {
     googleMapsUrl: "https://maps.google.com/?q=7+Laurel+Circle+Thornton+NH+03223",
     checkInTime: "4:00 PM",
     checkOutTime: "10:00 AM",
-    rating: "5.0 â˜…",
-    specs: "3 Bedrooms â€¢ 6 Beds â€¢ 2 Full Baths â€¢ Up to 7-8 Guests",
+    rating: "5.0 ★",
+    specs: "3 Bedrooms • 6 Beds • 2 Full Baths • Up to 7-8 Guests",
 
     // Website URL used to generate the QR Code on the printable flyer
     // (Update this once you host the site or connect a domain!)
@@ -152,7 +152,7 @@ const GUIDE_DATA = {
     mapUrl: "https://maps.google.com/?q=Waterville+Estates+Community+Center+Campton+NH",
     website: "https://www.waterville-estates.com/our-facilities",
     phone: "(603) 726-3082",
-    hours: "Sunâ€“Thu: 10 AM â€“ 8 PM  |  Fri & Sat: 10 AM â€“ 10 PM",
+    hours: "Sun–Thu: 10 AM – 8 PM  |  Fri & Sat: 10 AM – 10 PM",
     passInstructions: [
       "ONE guest pass to the Recreation Center is INCLUDED with your stay.",
       "Day passes must be purchased at the front desk for all additional guests in your party.",
@@ -183,7 +183,7 @@ const GUIDE_DATA = {
       }
     ],
     // Hours sourced from waterville-estates.com/our-facilities/recreation-center
-    hours: "Sunâ€“Thu: 10 AM â€“ 8 PM  |  Fri & Sat: 10 AM â€“ 10 PM",
+    hours: "Sun–Thu: 10 AM – 8 PM  |  Fri & Sat: 10 AM – 10 PM",
     amenities: [
       { name: "2 Indoor Heated Pools", desc: "Open year-round with lounge chairs, large windows, and pool noodles. Perfect for laps or family fun any time of year." },
       { name: "2 Outdoor Heated Pools", desc: "Seasonally open with walk-in steps, sundeck, lounge chairs, shade umbrellas, and tiered wooden decking overlooking forested hills." },
@@ -191,17 +191,17 @@ const GUIDE_DATA = {
       { name: "Locker Rooms & Saunas", desc: "Full locker rooms with dry-heat saunas for men and women, available to all rec center guests." },
       { name: "Fitness Center", desc: "Commercial treadmills, stationary bikes, multi-station weight machines, free weights, and wall-mounted workout guides." },
       { name: "Campton Mountain Ski Area", desc: "On-site downhill ski hill with chairlift and rope tow. Night skiing on weekends. Ski lessons available." },
-      { name: "Cross-Country Skiing & Snowshoeing", desc: "Miles of groomed and marked trails winding through the community â€” right out the door." },
+      { name: "Cross-Country Skiing & Snowshoeing", desc: "Miles of groomed and marked trails winding through the community — right out the door." },
       { name: "Community Pond, Beach & Fishing", desc: "Sandy swimming beach with a floating diving raft. Catch-and-release fishing on the pond, open to all guests." },
-      { name: "Sports Courts", desc: "2 basketball courts, 2 pickleball courts, 3 tennis courts, and a sand volleyball court â€” all lit for evening play." },
-      { name: "Game Room & Pub", desc: "Billiards, arcade games, and a relaxed pub serving your favorite beverages â€” great for rainy afternoons." },
+      { name: "Sports Courts", desc: "2 basketball courts, 2 pickleball courts, 3 tennis courts, and a sand volleyball court — all lit for evening play." },
+      { name: "Game Room & Pub", desc: "Billiards, arcade games, and a relaxed pub serving your favorite beverages — great for rainy afternoons." },
       { name: "Playground & Horseshoe Pits", desc: "Outdoor playground with swings for younger kids, plus horseshoe pits for the adults." },
       { name: "Hiking Trails & Nature Walks", desc: "Miles of community hiking trails suitable for all skill levels, connecting to the White Mountain trail network." }
     ],
     photos: [
       {
         url: "https://www.waterville-estates.com/wp-content/uploads/2014/04/pool3.jpg",
-        title: "Indoor Heated Pool â€” Lounge",
+        title: "Indoor Heated Pool — Lounge",
         caption: "Rectangular indoor pool with chaise lounges and large windows"
       },
       {
@@ -377,7 +377,7 @@ const GUIDE_DATA = {
       type: "On-Site Community Ski Hill",
       driveTime: "4 mins (Inside Waterville Estates)",
       desc: "Waterville Estates' own ski hill! Features a double chairlift, rope tow, night skiing under lights on Friday/Saturday, and a warm summit lodge pub.",
-      specs: "Rope Tow & Chairlift â€¢ Night Skiing â€¢ Beginner & Intermediate â€¢ Summit Lodge",
+      specs: "Rope Tow & Chairlift • Night Skiing • Beginner & Intermediate • Summit Lodge",
       mapUrl: "https://maps.google.com/?q=Campton+Mountain+Ski+Area+Campton+NH",
       website: "https://www.waterville-estates.com/our-facilities/campton-mountian-ski-area"
     },
@@ -386,7 +386,7 @@ const GUIDE_DATA = {
       type: "Full-Service Ski Mountain & Nordic Center",
       driveTime: "18 mins",
       desc: "Surrounded by White Mountain National Forest peaks. Offers 265 skiable acres, 4,000+ ft summit, extensive terrain parks, Nordic ski center, and snow tubing.",
-      specs: "265 Acres â€¢ 60+ Trails â€¢ 2,020' Vertical â€¢ Terrain Parks â€¢ Tubing Hill",
+      specs: "265 Acres • 60+ Trails • 2,020' Vertical • Terrain Parks • Tubing Hill",
       mapUrl: "https://maps.google.com/?q=Waterville+Valley+Resort+NH",
       website: "https://waterville.com"
     },
@@ -395,7 +395,7 @@ const GUIDE_DATA = {
       type: "Major Ski Resort (Lincoln, NH)",
       driveTime: "22 mins",
       desc: "One of New England's premier destinations featuring the Kancamagus 8 (high-speed eight-person heated chairlift), gondola, award-winning terrain parks, and great snowmaking.",
-      specs: "61 Trails â€¢ 3 Peaks â€¢ 2,100' Vertical â€¢ Heated 8-Pack Lift â€¢ Gondola",
+      specs: "61 Trails • 3 Peaks • 2,100' Vertical • Heated 8-Pack Lift • Gondola",
       mapUrl: "https://maps.google.com/?q=Loon+Mountain+Resort+Lincoln+NH",
       website: "https://loonmtn.com"
     },
@@ -404,7 +404,7 @@ const GUIDE_DATA = {
       type: "State Park Ski Mountain (Franconia Notch)",
       driveTime: "26 mins",
       desc: "Historic big-mountain terrain owned by the State of New Hampshire. Highest ski summit in NH, challenging steeps, and home to the iconic Cannon Aerial Tramway.",
-      specs: "97 Trails â€¢ 4,080' Summit â€¢ 2,180' Vertical â€¢ Aerial Tramway â€¢ Epic Views",
+      specs: "97 Trails • 4,080' Summit • 2,180' Vertical • Aerial Tramway • Epic Views",
       mapUrl: "https://maps.google.com/?q=Cannon+Mountain+Franconia+NH",
       website: "https://www.cannonmt.com/"
     },
@@ -413,7 +413,7 @@ const GUIDE_DATA = {
       type: "NH's Largest Ski Area (Omni Mount Washington)",
       driveTime: "45 mins",
       desc: "Voted #1 for grooming and snow quality in the East! Scenic views of Mount Washington, 8-passenger Skyway Gondola, wide cruising boulevards, and glades.",
-      specs: "468 Acres â€¢ 63 Trails â€¢ 10 Lifts â€¢ 8-Passenger Gondola â€¢ Night Skiing",
+      specs: "468 Acres • 63 Trails • 10 Lifts • 8-Passenger Gondola • Night Skiing",
       mapUrl: "https://maps.google.com/?q=Bretton+Woods+Ski+Area+NH",
       website: "https://brettonwoods.com"
     }
@@ -435,7 +435,7 @@ const GUIDE_DATA = {
     {
       name: "Welch-Dickey Loop Trail",
       difficulty: "Moderate - Strenuous (Ledges)",
-      distance: "4.4 Mile Loop â€¢ 1,750' Elevation",
+      distance: "4.4 Mile Loop • 1,750' Elevation",
       driveTime: "12 mins (Thornton/Campton)",
       desc: "Ranked among the top hikes in all of New England! Features exposed granite ledges with jaw-dropping 360-degree views of the Mad River Notch.",
       mapUrl: "https://maps.google.com/?q=Welch+Dickey+Trailhead+Thornton+NH",
@@ -453,7 +453,7 @@ const GUIDE_DATA = {
     {
       name: "Artist's Bluff & Bald Mountain",
       difficulty: "Easy to Moderate",
-      distance: "1.5 Mile Loop â€¢ 430' Elevation",
+      distance: "1.5 Mile Loop • 430' Elevation",
       driveTime: "24 mins (Franconia Notch)",
       desc: "Short family-friendly hike offering the most photographed vista in New Hampshire overlooking Echo Lake and the dramatic Franconia Notch pass.",
       mapUrl: "https://maps.google.com/?q=Artist+Bluff+Trailhead+Franconia+NH",
@@ -462,7 +462,7 @@ const GUIDE_DATA = {
     {
       name: "Mount Pemigewasset (Indian Head)",
       difficulty: "Moderate",
-      distance: "3.7 Miles Out & Back â€¢ 1,250' Elevation",
+      distance: "3.7 Miles Out & Back • 1,250' Elevation",
       driveTime: "19 mins (Lincoln)",
       desc: "Gentle switchbacks lead through quiet hardwood forest up to a massive open granite shelf with sweeping panoramic views of Mount Moosilauke and the Kinsmans.",
       mapUrl: "https://maps.google.com/?q=Mount+Pemigewasset+Trailhead+Lincoln+NH",
@@ -549,7 +549,7 @@ const GUIDE_DATA = {
     {
       name: "Waterville Estates Community Happenings",
       category: "On-Site / Resort",
-      driveTime: "3â€“4 mins",
+      driveTime: "3–4 mins",
       desc: "Weekly happenings right at the Community Center & Mountain Pub! Live acoustic music, trivia nights, adult pool volleyball, holiday craft events, and seasonal community socials.",
       tags: ["Live Music", "Mountain Pub", "Family Bingo", "Community"],
       website: "https://www.waterville-estates.com/happenings/event"
@@ -565,7 +565,7 @@ const GUIDE_DATA = {
     {
       name: "Central NH Chamber of Commerce Calendar",
       category: "Campton, Thornton & Plymouth",
-      driveTime: "5â€“15 mins",
+      driveTime: "5–15 mins",
       desc: "Comprehensive community calendar for the Pemi-Baker valley towns. Discover regional craft fairs, farmers markets, business networking, holiday strolls, and cultural events.",
       tags: ["Farmers Markets", "Craft Fairs", "Town Festivals", "Pemi Valley"],
       website: "https://centralnh.org/calendar/?v=bc74609e35bc"
@@ -573,7 +573,7 @@ const GUIDE_DATA = {
     {
       name: "LocalNH Lincoln & Woodstock Events",
       category: "Lincoln & Woodstock",
-      driveTime: "15â€“18 mins",
+      driveTime: "15–18 mins",
       desc: "Hyper-local entertainment guide for Lincoln and North Woodstock. Weekly live music lineups, brewery trivia, restaurant specials, comedy nights, and weekend community gatherings.",
       tags: ["Nightlife", "Live Music", "Brewery Events", "Local Happenings"],
       website: "https://localnh.com/towns/lincoln/events"
@@ -589,7 +589,7 @@ const GUIDE_DATA = {
     {
       name: "Western White Mountains Chamber of Commerce",
       category: "Lincoln, Woodstock & Franconia",
-      driveTime: "15â€“20 mins",
+      driveTime: "15–20 mins",
       desc: "Official calendar for the Western White Mountains region. Features the annual Rubber Duck Regatta, Oktoberfest celebrations, Easter egg hunts, and winter holiday parades.",
       tags: ["Oktoberfest", "Community Parades", "Holiday Events", "Chamber Events"],
       website: "https://westernwhitemtns.com/events/"
@@ -606,8 +606,8 @@ const GUIDE_DATA = {
       name: "Loon Mountain Resort Events",
       category: "Mountain & Winter Sports",
       driveTime: "20 mins",
-      desc: "Major alpine sports events, winter rail jams, aprÃ©s-ski deck entertainment, torchlight parades, and summer mountain bike festivals at Loon Mountain.",
-      tags: ["AprÃ©s-Ski", "Snowboard Comps", "Torchlight Parade", "Mountain Festivals"],
+      desc: "Major alpine sports events, winter rail jams, aprés-ski deck entertainment, torchlight parades, and summer mountain bike festivals at Loon Mountain.",
+      tags: ["Aprés-Ski", "Snowboard Comps", "Torchlight Parade", "Mountain Festivals"],
       website: "https://www.loonmtn.com/events"
     }
   ],
@@ -734,8 +734,8 @@ const GUIDE_DATA = {
       title: "Heating, Thermostats & A/C",
       icon: "thermometer",
       steps: [
-        "In winter, keep thermostats set comfortably between 68Â°F and 71Â°F.",
-        "When checking out in winter, please set thermostats to 55Â°F (never turn heat off completely to prevent frozen pipes).",
+        "In winter, keep thermostats set comfortably between 68°F and 71°F.",
+        "When checking out in winter, please set thermostats to 55°F (never turn heat off completely to prevent frozen pipes).",
         "In summer, utilize ceiling fans and A/C units for cooling. Please turn off A/C when leaving for the day."
       ]
     },
@@ -779,7 +779,7 @@ const GUIDE_DATA = {
     { text: "Take all tied garbage and recycling to the community dumpster. Located on the left as you exit the front door (look for the bear-proof dumpster).", done: false },
     { text: "Strip used bed sheets and leave them on top of each bed.", done: false },
     { text: "Place used towels on the bathroom floor or in the laundry hamper.", done: false },
-    { text: "Set winter thermostats to 55Â°F (or turn off A/C in summer).", done: false },
+    { text: "Set winter thermostats to 55°F (or turn off A/C in summer).", done: false },
     { text: "Check all drawers, under beds, and outlets for phone chargers and personal items.", done: false },
     { text: "Turn off all lights, close and lock all windows and exterior doors.", done: false }
   ],
