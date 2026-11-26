@@ -51,11 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // 14. Setup Interactive Search
   setupSearch();
 
-  // 15. Setup Wi-Fi Copy Button
+  // 15. Setup Wi-Fi & Address Copy Buttons
   setupWifiCopy();
+  setupAddressCopy();
+
+  // 15a. Setup Explore Category Sub-Tabs
+  setupExploreTabs();
 
   // 15b. Setup Mobile Bottom Sheet Navigation
   setupBottomSheet();
+
+  // 15c. Setup Appliances Expand/Collapse All
+  setupAppliancesToggleAll();
 
   // 16. Display Last Updated Date & Setup Update Buttons
   renderLastUpdated();
@@ -72,6 +79,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // -----------------------------------------------------------------------------
 function renderPropertyBasics() {
   const p = GUIDE_DATA.property;
+
+  // Digital Arrival Pass (Enso Connect Style)
+  const arrivalCheckin  = document.getElementById('arrival-checkin');
+  const arrivalCheckout = document.getElementById('arrival-checkout');
+  const arrivalEntryT   = document.getElementById('arrival-entry-title');
+  const arrivalEntryTxt = document.getElementById('arrival-entry-text');
+  const arrivalAddr     = document.getElementById('arrival-address');
+  const arrivalNavBtn   = document.getElementById('arrival-nav-btn');
+  const arrivalParkTxt  = document.getElementById('arrival-parking-text');
+  const arrivalParkNote = document.getElementById('arrival-parking-note');
+
+  if (arrivalCheckin && p.checkInTime)   arrivalCheckin.textContent = p.checkInTime;
+  if (arrivalCheckout && p.checkOutTime) arrivalCheckout.textContent = p.checkOutTime;
+  if (arrivalAddr && p.address)          arrivalAddr.textContent = p.address;
+  if (arrivalNavBtn && p.googleMapsUrl)  arrivalNavBtn.href = p.googleMapsUrl;
+  if (p.arrival) {
+    if (arrivalEntryT && p.arrival.entryTitle)         arrivalEntryT.textContent = p.arrival.entryTitle;
+    if (arrivalEntryTxt && p.arrival.entryInstructions) arrivalEntryTxt.textContent = p.arrival.entryInstructions;
+    if (arrivalParkTxt && p.arrival.parkingSummary)    arrivalParkTxt.textContent = p.arrival.parkingSummary;
+    if (arrivalParkNote && p.arrival.parkingNote)      arrivalParkNote.textContent = p.arrival.parkingNote;
+  }
 
   // Wi-Fi
   const wifiSsid  = document.getElementById('wifi-ssid');
@@ -498,31 +526,87 @@ function renderEssentials() {
 }
 
 // -----------------------------------------------------------------------------
-// 9. CONDO APPLIANCES GUIDE
+// 9. CONDO APPLIANCES GUIDE (COLLAPSIBLE ACCORDIONS)
 // -----------------------------------------------------------------------------
 function renderAppliances() {
   const grid = document.getElementById('appliances-grid');
   if (!grid) return;
 
-  grid.innerHTML = GUIDE_DATA.appliances.map(app => `
-    <div class="bg-white rounded-2xl p-5 shadow-card border border-slate-200 search-target winter-card"
+  grid.innerHTML = GUIDE_DATA.appliances.map((app, idx) => `
+    <div class="appliance-card bg-white rounded-2xl shadow-card border border-slate-200 overflow-hidden search-target winter-card"
          data-search="${app.title} ${app.steps.join(' ')}">
-      <h4 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
-        <span class="w-7 h-7 rounded-lg bg-pine-50 text-pine-700 flex items-center justify-center shrink-0">
-          <i data-lucide="check" class="w-4 h-4"></i>
-        </span>
-        ${app.title}
-      </h4>
-      <ul class="space-y-2 text-xs text-slate-600">
-        ${app.steps.map(step => `
-          <li class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></div>
-            <span>${step}</span>
-          </li>
-        `).join('')}
-      </ul>
+      <button type="button" class="appliance-toggle w-full px-5 py-4 flex items-center justify-between gap-3 text-left hover:bg-pine-50/40 transition" aria-expanded="false" data-idx="${idx}">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="w-8 h-8 rounded-xl bg-pine-50 text-pine-700 flex items-center justify-center shrink-0 border border-pine-100">
+            <i data-lucide="${app.icon || 'check'}" class="w-4 h-4"></i>
+          </span>
+          <div class="min-w-0">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 truncate">${app.title}</h4>
+            <span class="text-[11px] text-slate-500 font-medium">${app.steps.length} quick steps</span>
+          </div>
+        </div>
+        <i data-lucide="chevron-down" class="appliance-chevron w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0"></i>
+      </button>
+      <div class="appliance-body hidden px-5 pb-5 pt-1 border-t border-slate-100">
+        <ul class="space-y-2 text-xs text-slate-600 pt-2">
+          ${app.steps.map(step => `
+            <li class="flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-pine-500 mt-1.5 shrink-0"></div>
+              <span>${step}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
     </div>
   `).join('');
+
+  grid.querySelectorAll('.appliance-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.appliance-card');
+      const body = card.querySelector('.appliance-body');
+      const chev = card.querySelector('.appliance-chevron');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      body.classList.toggle('hidden', isOpen);
+      if (chev) chev.classList.toggle('rotate-180', !isOpen);
+      syncToggleAllAppliancesLabel();
+    });
+  });
+}
+
+function setApplianceExpanded(card, expand) {
+  const btn = card.querySelector('.appliance-toggle');
+  const body = card.querySelector('.appliance-body');
+  const chev = card.querySelector('.appliance-chevron');
+  if (!btn || !body) return;
+  btn.setAttribute('aria-expanded', String(expand));
+  body.classList.toggle('hidden', !expand);
+  if (chev) chev.classList.toggle('rotate-180', expand);
+}
+
+function syncToggleAllAppliancesLabel() {
+  const label = document.getElementById('toggle-all-appliances-label');
+  if (!label) return;
+  const cards = document.querySelectorAll('.appliance-card');
+  const allOpen = cards.length > 0 && Array.from(cards).every(c =>
+    c.querySelector('.appliance-toggle')?.getAttribute('aria-expanded') === 'true'
+  );
+  label.textContent = allOpen ? 'Collapse All' : 'Expand All';
+}
+
+function setupAppliancesToggleAll() {
+  const btn = document.getElementById('toggle-all-appliances');
+  if (!btn || btn.dataset.bound === 'true') return;
+  btn.dataset.bound = 'true';
+
+  btn.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.appliance-card');
+    const allOpen = cards.length > 0 && Array.from(cards).every(c =>
+      c.querySelector('.appliance-toggle')?.getAttribute('aria-expanded') === 'true'
+    );
+    cards.forEach(c => setApplianceExpanded(c, !allOpen));
+    syncToggleAllAppliancesLabel();
+  });
 }
 
 // -----------------------------------------------------------------------------
@@ -657,50 +741,131 @@ function setupSearch() {
   const clearBtn    = document.getElementById('clear-search');
   if (!searchInput) return;
 
-  searchInput.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase().trim();
+  function applySearch(q) {
     if (clearBtn) {
       clearBtn.classList.toggle('hidden', q.length === 0);
     }
+
+    // Ensure all Explore sections are visible while searching
+    if (q.length > 0 && typeof window.setActiveExploreTab === 'function') {
+      window.setActiveExploreTab('all', false);
+    }
+
     document.querySelectorAll('.search-target').forEach(t => {
       const haystack = (t.dataset.search || '').toLowerCase();
-      t.style.display = (!q || haystack.includes(q)) ? '' : 'none';
+      const matches = !q || haystack.includes(q);
+      t.style.display = matches ? '' : 'none';
+
+      // Auto-expand matching appliance accordions during search
+      if (t.classList.contains('appliance-card')) {
+        setApplianceExpanded(t, q.length > 0 && matches);
+      }
     });
+
+    syncToggleAllAppliancesLabel();
+  }
+
+  searchInput.addEventListener('input', e => {
+    applySearch(e.target.value.toLowerCase().trim());
   });
 
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       searchInput.value = '';
-      clearBtn.classList.add('hidden');
-      document.querySelectorAll('.search-target').forEach(t => t.style.display = '');
+      applySearch('');
     });
   }
 }
 
 // -----------------------------------------------------------------------------
-// 15. WI-FI ONE-TAP COPY
+// 15. ONE-TAP CLIPBOARD COPY (WI-FI & ADDRESS)
 // -----------------------------------------------------------------------------
-function setupWifiCopy() {
-  const btn     = document.getElementById('copy-wifi-btn');
-  const btnText = document.getElementById('copy-btn-text');
-  if (!btn || !btnText) return;
+function bindCopyButton(btnId, textId, getValue, defaultLabel = 'Copy', activeBgClass = 'bg-emerald-400') {
+  const btn     = document.getElementById(btnId);
+  const btnText = document.getElementById(textId);
+  if (!btn || !btnText || btn.dataset.bound === 'true') return;
+  btn.dataset.bound = 'true';
 
   btn.addEventListener('click', () => {
-    const pass = GUIDE_DATA.property.wifi.password;
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(pass).then(() => {
-        btnText.textContent = 'Copied! ✓';
-        btn.classList.add('bg-emerald-400');
-        setTimeout(() => {
-          btnText.textContent = 'Copy';
-          btn.classList.remove('bg-emerald-400');
-        }, 2000);
-      }).catch(() => {
-        // Fallback for browsers that block clipboard on file:// protocol
-        btnText.textContent = `"${pass}"`;
-        setTimeout(() => { btnText.textContent = 'Copy'; }, 3000);
+    const value = getValue();
+    if (!value) return;
+
+    const showCopied = () => {
+      btnText.textContent = 'Copied! ✓';
+      btn.classList.add(activeBgClass);
+      setTimeout(() => {
+        btnText.textContent = defaultLabel;
+        btn.classList.remove(activeBgClass);
+      }, 2000);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(value).then(showCopied).catch(() => {
+        btnText.textContent = `"${value}"`;
+        setTimeout(() => { btnText.textContent = defaultLabel; }, 3000);
       });
+    } else {
+      btnText.textContent = `"${value}"`;
+      setTimeout(() => { btnText.textContent = defaultLabel; }, 3000);
     }
+  });
+}
+
+function setupWifiCopy() {
+  bindCopyButton('copy-wifi-btn', 'copy-btn-text', () => GUIDE_DATA.property.wifi.password, 'Copy', 'bg-emerald-400');
+}
+
+function setupAddressCopy() {
+  bindCopyButton('copy-address-btn', 'copy-address-text', () => GUIDE_DATA.property.address, 'Copy', 'bg-emerald-500');
+}
+
+// -----------------------------------------------------------------------------
+// 15a. EXPLORE CATEGORY SUB-TABS
+// -----------------------------------------------------------------------------
+function setupExploreTabs() {
+  const tabBtns  = document.querySelectorAll('.explore-tab-btn');
+  const sections = document.querySelectorAll('[data-explore-section]');
+  if (tabBtns.length === 0 || sections.length === 0) return;
+
+  const activeClasses   = ['bg-pine-800', 'text-white', 'font-bold', 'shadow-sm'];
+  const inactiveClasses = ['bg-white', 'text-slate-600', 'border', 'border-slate-200', 'font-semibold', 'hover:bg-pine-50', 'hover:text-pine-800'];
+
+  function setActiveTab(targetKey, shouldScroll = false) {
+    tabBtns.forEach(btn => {
+      const isMatch = btn.dataset.exploreTab === targetKey;
+      btn.classList.remove(...activeClasses, ...inactiveClasses);
+      btn.classList.add(...(isMatch ? activeClasses : inactiveClasses));
+    });
+
+    sections.forEach(sec => {
+      const key = sec.dataset.exploreSection;
+      sec.classList.toggle('hidden', targetKey !== 'all' && key !== targetKey);
+    });
+
+    if (shouldScroll && targetKey !== 'all') {
+      const targetSec = document.querySelector(`[data-explore-section="${targetKey}"]`);
+      if (targetSec) {
+        targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  window.setActiveExploreTab = setActiveTab;
+
+  tabBtns.forEach(btn => {
+    if (btn.dataset.bound === 'true') return;
+    btn.dataset.bound = 'true';
+    btn.addEventListener('click', () => setActiveTab(btn.dataset.exploreTab, false));
+  });
+
+  // Sync top banner dropdown links & mobile bottom sheet links to Explore tabs
+  const exploreIds = ['dining', 'skiing', 'hiking', 'fishing', 'attractions', 'groceries'];
+  exploreIds.forEach(id => {
+    document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+      if (link.dataset.exploreBound === 'true') return;
+      link.dataset.exploreBound = 'true';
+      link.addEventListener('click', () => setActiveTab(id, false));
+    });
   });
 }
 
@@ -751,6 +916,7 @@ function reRenderEntireGuide() {
   renderAttractions();
   renderEssentials();
   renderAppliances();
+  syncToggleAllAppliancesLabel();
   renderHouseRules();
   renderCheckOutChecklist();
   renderEmergency();

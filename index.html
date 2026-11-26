@@ -187,6 +187,9 @@
             <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400 group-hover:rotate-180 transition-transform duration-200"></i>
           </button>
           <div class="absolute left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-200/90 py-1.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <a href="#arrival-pass" class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-slate-700 hover:bg-pine-50 hover:text-pine-900 transition">
+              <span>🎫</span><span>Arrival Pass &amp; Parking</span>
+            </a>
             <a href="#wifi-section" class="flex items-center gap-2.5 px-3.5 py-2 text-xs text-slate-700 hover:bg-pine-50 hover:text-pine-900 transition">
               <span>ðŸ“¶</span><span>In-Condo Wi-Fi</span>
             </a>
@@ -373,9 +376,95 @@
         </div>
         <div>
           <h2 class="font-serif text-xl font-bold text-pine-900">Your Stay</h2>
-          <p class="text-xs text-slate-400">Wi-Fi Â· Trash Â· Check-Out</p>
+          <p class="text-xs text-slate-400">Arrival Pass · Wi-Fi · Trash · Check-Out</p>
         </div>
       </div>
+
+    <!-- ========================================================== -->
+    <!-- 0. DIGITAL ARRIVAL PASS (Enso Connect Style)               -->
+    <!-- ========================================================== -->
+    <section id="arrival-pass" class="scroll-mt-28">
+      <div class="rounded-3xl overflow-hidden shadow-winter border border-pine-800/30 text-white" style="background: linear-gradient(135deg, #07131a 0%, #0f333a 55%, #164b52 100%);">
+        <!-- Pass Header Bar -->
+        <div class="px-6 py-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-black/20">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/30 text-amber-300 flex items-center justify-center shrink-0">
+              <i data-lucide="ticket" class="w-4 h-4"></i>
+            </span>
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-frost-300/80 block">Digital Arrival Pass</span>
+              <h3 class="font-serif text-lg font-bold text-white leading-tight">Check-In &amp; Property Access · Unit #5</h3>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-400/30 text-emerald-200 font-semibold">
+              <i data-lucide="log-in" class="w-3.5 h-3.5 text-emerald-300"></i>
+              Check-In: <strong id="arrival-checkin" class="text-white">4:00 PM</strong>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 text-frost-100 font-semibold">
+              <i data-lucide="log-out" class="w-3.5 h-3.5 text-amber-300"></i>
+              Check-Out: <strong id="arrival-checkout" class="text-white">10:00 AM</strong>
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Modular Boarding Pass Tiles -->
+        <div class="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Tile 1: Entry & Access -->
+          <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
+                <i data-lucide="key-round" class="w-4 h-4"></i>
+                <span id="arrival-entry-title">Keyless / Smart Lock Entry</span>
+              </div>
+              <p id="arrival-entry-text" class="text-xs sm:text-[13px] text-frost-100/90 leading-relaxed">
+                Your personal door code is sent via booking message 24 hours before arrival.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tile 2: Address & Navigation -->
+          <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4 flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 text-frost-300 text-xs font-bold uppercase tracking-wider mb-2">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Property Address</span>
+              </div>
+              <p id="arrival-address" class="text-xs sm:text-[13px] font-semibold text-white leading-relaxed">
+                7 Laurel Circle, Unit #5, Thornton, NH 03223
+              </p>
+            </div>
+            <div class="flex items-center gap-2 pt-1">
+              <a id="arrival-nav-btn" href="https://maps.google.com/?q=7+Laurel+Circle+Thornton+NH+03223" target="_blank"
+                 class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-pine-950 font-bold text-xs transition active:scale-95 shadow-sm">
+                <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Navigate
+              </a>
+              <button id="copy-address-btn" type="button"
+                      class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white font-semibold text-xs transition border border-white/20 active:scale-95">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="copy-address-text">Copy</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tile 3: Designated Parking -->
+          <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
+                <i data-lucide="car" class="w-4 h-4"></i>
+                <span>Designated Parking</span>
+              </div>
+              <p id="arrival-parking-text" class="text-xs sm:text-[13px] text-frost-100/90 leading-relaxed mb-2">
+                2 spaces: one in front of walkway, one to the left. Overflow behind dumpster.
+              </p>
+              <p id="arrival-parking-note" class="text-[11px] text-amber-200/85 leading-snug">
+                Do not park on roadways or grassy areas, especially during winter snow-plowing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ========================================================== -->
     <!-- 1. WI-FI & TRASH                                           -->
@@ -507,12 +596,20 @@
     <!-- 2. CONDO APPLIANCES & COMFORT GUIDE                        -->
     <!-- ========================================================== -->
     <section id="appliances" class="scroll-mt-28">
-      <span class="section-label bg-slate-100 text-slate-700 border border-slate-200 mb-3 inline-flex">
-        <i data-lucide="settings" class="w-3.5 h-3.5"></i> Condo Instructions
-      </span>
-      <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Condo Guide & Appliances</h2>
-      <p class="text-sm text-slate-500 mb-6">Step-by-step guides for the fireplace, thermostats, main floor Roku TV, washer/dryer, and kitchen.</p>
-      <div id="appliances-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+        <div>
+          <span class="section-label bg-slate-100 text-slate-700 border border-slate-200 mb-3 inline-flex">
+            <i data-lucide="settings" class="w-3.5 h-3.5"></i> Condo Instructions
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Condo Guide &amp; Appliances</h2>
+          <p class="text-sm text-slate-500">Tap any item to expand step-by-step guides for the fireplace, thermostats, Roku TV, laundry, and kitchen.</p>
+        </div>
+        <button id="toggle-all-appliances" type="button" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-pine-50 text-slate-700 hover:text-pine-800 border border-slate-200 text-xs font-semibold transition shrink-0">
+          <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5"></i>
+          <span id="toggle-all-appliances-label">Expand All</span>
+        </button>
+      </div>
+      <div id="appliances-grid" class="space-y-3"></div>
     </section>
 
     <!-- ========================================================== -->
@@ -633,20 +730,47 @@
     <!-- ============================================================ -->
     <div class="space-y-10 pt-10 pb-14 border-b-2 border-pine-100">
       <!-- Group Header -->
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-emerald-700 flex items-center justify-center shadow-sm shrink-0">
-          <span class="text-lg leading-none">ðŸ§­</span>
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-700 flex items-center justify-center shadow-sm shrink-0">
+            <span class="text-lg leading-none">🧭</span>
+          </div>
+          <div>
+            <h2 class="font-serif text-xl font-bold text-pine-900">Explore</h2>
+            <p class="text-xs text-slate-400">Dining · Skiing · Hiking · Fishing · Day Trips · Groceries</p>
+          </div>
         </div>
-        <div>
-          <h2 class="font-serif text-xl font-bold text-pine-900">Explore</h2>
-          <p class="text-xs text-slate-400">Dining Â· Skiing Â· Hiking Â· Fishing Â· Day Trips Â· Groceries</p>
+
+        <!-- Explore Category Sub-Tabs (Scroll-Fatigue Reduction) -->
+        <div id="explore-tabs" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-pine-800 text-white shadow-sm transition" data-explore-tab="all">
+            All
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="dining">
+            🍽️ Dining
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="skiing">
+            ⛷️ Skiing
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="hiking">
+            🥾 Hiking
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="fishing">
+            🎣 Fishing
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="attractions">
+            🗺️ Day Trips
+          </button>
+          <button type="button" class="explore-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-600 border border-slate-200 hover:bg-pine-50 hover:text-pine-800 transition" data-explore-tab="groceries">
+            🛒 Groceries
+          </button>
         </div>
       </div>
 
     <!-- ========================================================== -->
     <!-- 3. DINING                                                   -->
     <!-- ========================================================== -->
-    <section id="dining" class="scroll-mt-28">
+    <section id="dining" data-explore-section="dining" class="scroll-mt-28">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
           <span class="section-label bg-orange-50 text-orange-800 border border-orange-200 mb-2 inline-flex">
@@ -670,7 +794,7 @@
     <!-- ========================================================== -->
     <!-- 4. ATTRACTIONS & DAY TRIPS                                 -->
     <!-- ========================================================== -->
-    <section id="attractions" class="scroll-mt-28">
+    <section id="attractions" data-explore-section="attractions" class="scroll-mt-28">
       <span class="section-label bg-purple-50 text-purple-800 border border-purple-200 mb-3 inline-flex">
         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Day Trips & Adventures
       </span>
@@ -682,7 +806,7 @@
     <!-- ========================================================== -->
     <!-- 5. SKIING                                                   -->
     <!-- ========================================================== -->
-    <section id="skiing" class="scroll-mt-28">
+    <section id="skiing" data-explore-section="skiing" class="scroll-mt-28">
       <span class="section-label bg-blue-50 text-blue-800 border border-blue-200 mb-3 inline-flex">
         <i data-lucide="snowflake" class="w-3.5 h-3.5"></i> On the Slopes
       </span>
@@ -694,7 +818,7 @@
     <!-- ========================================================== -->
     <!-- 5. HIKING                                                   -->
     <!-- ========================================================== -->
-    <section id="hiking" class="scroll-mt-28">
+    <section id="hiking" data-explore-section="hiking" class="scroll-mt-28">
       <span class="section-label bg-emerald-50 text-emerald-800 border border-emerald-200 mb-3 inline-flex">
         <i data-lucide="compass" class="w-3.5 h-3.5"></i> On the Trail
       </span>
@@ -706,7 +830,7 @@
     <!-- ========================================================== -->
     <!-- 7. FISHING                                                  -->
     <!-- ========================================================== -->
-    <section id="fishing" class="scroll-mt-28">
+    <section id="fishing" data-explore-section="fishing" class="scroll-mt-28">
       <span class="section-label bg-cyan-50 text-cyan-800 border border-cyan-200 mb-3 inline-flex">
         <i data-lucide="fish" class="w-3.5 h-3.5"></i> On the Water
       </span>
@@ -718,7 +842,7 @@
     <!-- ========================================================== -->
     <!-- 8. GROCERIES & ESSENTIALS                                  -->
     <!-- ========================================================== -->
-    <section id="groceries" class="scroll-mt-28">
+    <section id="groceries" data-explore-section="groceries" class="scroll-mt-28">
       <span class="section-label bg-amber-50 text-amber-900 border border-amber-200 mb-3 inline-flex">
         <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i> Stock Up
       </span>
@@ -841,6 +965,9 @@
         <div>
           <h4 class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2.5">ðŸ  Your Stay</h4>
           <div class="grid grid-cols-2 gap-2 text-xs">
+            <a href="#arrival-pass" class="sheet-link col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-pine-50 text-pine-900 hover:bg-pine-100 transition font-bold border border-pine-200">
+              <span class="text-base">🎫</span><span>Arrival Pass &amp; Parking</span>
+            </a>
             <a href="#wifi-section" class="sheet-link flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-pine-50 hover:text-pine-800 transition font-medium border border-slate-100">
               <span class="text-base">ðŸ“¶</span><span>In-Condo Wi-Fi</span>
             </a>

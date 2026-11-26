@@ -10,7 +10,7 @@ const GUIDE_DATA = {
   // ---------------------------------------------------------------------------
   // GUIDE METADATA & LAST UPDATED
   // ---------------------------------------------------------------------------
-  lastUpdated: "November 22, 2026",
+  lastUpdated: "November 25, 2026",
   version: "2.1",
 
   // ---------------------------------------------------------------------------
@@ -40,6 +40,13 @@ const GUIDE_DATA = {
       summary: "Laurel Circle Community Dumpster (Green Bear-Proof Enclosure)",
       instructions: "All household trash must be tied in bags and placed in the designated community dumpster for Laurel Circle / White Birches, located on the left as you exit the front door (look for the bear-proof dumpster). Please ensure the dumpster lid and latch are securely closed after depositing trash.",
       dumpsterLocation: "located on the left as you exit the front door (look for the bear-proof dumpster)."
+    },
+
+    arrival: {
+      entryTitle: "Keyless / Smart Lock Entry",
+      entryInstructions: "Your personal door code is sent via booking message 24 hours before arrival. Enter your code on the front door keypad to unlock.",
+      parkingSummary: "2 designated spaces: one directly in front of the walkway and one to the left. Overflow parking is behind the dumpster.",
+      parkingNote: "Do not park on roadways or grassy areas, especially during winter snow-plowing."
     },
 
     // Contact info
