@@ -64,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 15c. Setup Appliances Expand/Collapse All
   setupAppliancesToggleAll();
 
+  // 15d. Setup PWA Offline Support & Install Prompt
+  setupPwaOffline();
+
   // 16. Display Last Updated Date & Setup Update Buttons
   renderLastUpdated();
   setupUpdateGuideButton();
@@ -110,6 +113,7 @@ function renderPropertyBasics() {
   if (wifiSsid) wifiSsid.textContent = p.wifi.network;
   if (wifiPass) wifiPass.textContent = p.wifi.password;
   if (wifiNote) wifiNote.textContent = p.wifi.note || '';
+  renderWifiQrCode(p.wifi.network, p.wifi.password);
 
   // Hide alert if host has updated the placeholder
   if (wifiAlert && !p.wifi.network.includes('[PLEASE UPDATE')) {
@@ -817,6 +821,76 @@ function setupWifiCopy() {
 
 function setupAddressCopy() {
   bindCopyButton('copy-address-btn', 'copy-address-text', () => GUIDE_DATA.property.address, 'Copy', 'bg-emerald-500');
+}
+
+// -----------------------------------------------------------------------------
+// 15.1 WI-FI QR CODE GENERATOR (StayScan / Touch Stay Style)
+// -----------------------------------------------------------------------------
+function escapeWifiQrField(str) {
+  return String(str || '').replace(/([\\;,:"])/g, '\\$1');
+}
+
+function renderWifiQrCode(ssid, password) {
+  const container = document.getElementById('wifi-qr-code');
+  if (!container) return;
+
+  if (typeof window.qrcode !== 'function') {
+    container.innerHTML = '<span class="text-[10px] text-slate-400 text-center">QR unavailable offline</span>';
+    return;
+  }
+
+  const payload = `WIFI:T:WPA;S:${escapeWifiQrField(ssid)};P:${escapeWifiQrField(password)};;`;
+  const qr = window.qrcode(0, 'M');
+  qr.addData(payload);
+  qr.make();
+  container.innerHTML = qr.createSvgTag({ cellSize: 3, margin: 0, scalable: true });
+  const svg = container.querySelector('svg');
+  if (svg) {
+    svg.setAttribute('class', 'w-full h-full');
+    svg.setAttribute('aria-label', `Wi-Fi QR Code for ${ssid}`);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 15.2 PWA OFFLINE SERVICE WORKER & HOME SCREEN INSTALL
+// -----------------------------------------------------------------------------
+function setupPwaOffline() {
+  if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+    navigator.serviceWorker.register('./sw.js').catch(err => {
+      console.warn('Service worker registration skipped:', err);
+    });
+  }
+
+  let deferredPrompt = null;
+  const installBtn   = document.getElementById('install-pwa-btn');
+  const installLabel = document.getElementById('install-pwa-label');
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installLabel) installLabel.textContent = 'Add to Home Screen';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    if (installLabel) installLabel.textContent = 'Saved Offline ✓';
+  });
+
+  if (installBtn && installBtn.dataset.bound !== 'true') {
+    installBtn.dataset.bound = 'true';
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        if (choice && choice.outcome === 'accepted' && installLabel) {
+          installLabel.textContent = 'Saved Offline ✓';
+        }
+        deferredPrompt = null;
+      } else {
+        showUpdateToast('Cached for offline use! On iPhone/iPad: tap Share → Add to Home Screen.');
+      }
+    });
+  }
 }
 
 // -----------------------------------------------------------------------------
